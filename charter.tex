@@ -69,7 +69,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 4 inclusive                 & dd/mm/aaaa \\ \hline
+1      & Se completa hasta el punto 6 inclusive                 & 04/07/2021 \\ \hline
 %2      & Se completa hasta el punto 7 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -162,8 +162,8 @@ Como se puede ver, este recurso deberá: verificar el estado de los periféricos
 Se espera que el proyecto agregue valor al INVAP de las siguientes maneras:
 
 \begin{itemize}
-	\item Simular de forma acelerada los 5 años de la misión Sabiamar
-	\item Presupuestar nuevo hardware para las misiones futuras
+	\item Simulando de forma acelerada los 5 años de la misión Sabiamar
+	\item Permitiendo presupuestar nuevo hardware para las misiones futuras
 \end{itemize}
 
 \section{2. Identificación y análisis de los interesados}
@@ -192,79 +192,101 @@ Usuario final & -                 &\empclientename	& -       	\\ \hline
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+El propósito de este proyecto es proporcionar herramientas para:
 
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
-\end{consigna}
+\begin{itemize}
+	\item Simular los efectos del ambiente espacial en un microcontrolador.
+	\item Evaluar si un dispositivo del mercado masivo puede ser utilizado en futuras misiones.
+\end{itemize}
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+El proyecto incluye en su alcance la creación de:
+\begin{itemize}
+	\item Un sistema de inyección de \emph{soft-errors}
+	\item Un firmware de autocomprobación de periféricos para el microcontrolador SAMV71
+\end{itemize}
 
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
+El presente proyecto no incluye:
 
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
-
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna}
+\begin{itemize}
+	\item El diseño de ensayos de \emph{soft-errors}
+\end{itemize}
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Supuesto 1
-	\item Supuesto 2...
+	\item Se tendrá acceso irrestricto al microcontrolador SAMV71 antes del día 01/11/2021
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-\end{consigna}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
+A continuación se enumeran los requerimientos del proyecto según lo especificado en el estándar IEEE Std. 830-1998:
 
 \begin{enumerate}
-	\item Requerimientos funcionales
+	\item Interfaces externas:
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item Se comunicará de forma bidireccional con \emph{OpenOCD} a través de \emph{TCP} o
+			\emph{Telnet}
+			\item Se deberá recibir y capturar la información proveniente por puerto \emph{Serial}
+			del microcontrolador SAMV71
 		\end{enumerate}
-	\item Requerimientos de documentación
+	\item Funciones:
 		\begin{enumerate}
-			\item Requerimiento 1
-			\item Requerimiento 2 (prioridad menor)
+			\item Inyección de \emph{soft-errors}:
+				\begin{enumerate}
+					\item Sobrescribirá los valores en memoria RAM
+					\item Invertirá el valor de un bit en la memoria RAM
+					\item Sobrescribirá valores en los registros internos
+					\item Invertirá el valor de un bit dentro de un registro interno
+					\item Reportará el estado del microcontrolador antes de realizar una
+					inyección de \emph{soft-errors}
+					\item Interpretará una descripción de ensayo escrita en \emph{Python 3} y
+					ejecutará las inyecciones según le indique
+					\item Aceptará descripciones de ensayo que impongan una tasa de error
+					para cada registro interno
+					\item Procesará descripciones de ensayo que impongan una tasa de error
+					para una posición o rango de memoria RAM
+					\item Las descripciones de ensayo podrán especificar probabilidades de
+					error con una resolución de 1 bit
+				\end{enumerate}
+			\item Firmware de autocomprobación:
+				\begin{enumerate}
+					\item Detectará el funcionamiento anormal de los periféricos del microcontrolador SAMV71
+					\item Reportará periódicamente el estado de los periféricos utilizando el protocolo \emph{Serial}
+					\item Los reportes tendrán un formato \emph{CSV} y un tamaño menor a 5 kB
+				\end{enumerate}
+			\item Almacenamiento de reportes:
+				\begin{enumerate}
+					\item Se incluirá un \emph{timestamp} de recepción del reporte
+					\item Se generarán histogramas para su análisis estadístico
+				\end{enumerate}
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Rendimiento:
+		\begin{enumerate}
+			\item El inyector de \emph{soft-errors} deberá realizar la inserción solicitada en un tiempo menor a 10 ms
+		\end{enumerate}
+	\item Restricciones de diseño:
+		\begin{enumerate}
+			\item Se utilizará el microcontrolador SAMV71 como dispositivo principal
+		\end{enumerate}
+	\item Atributos del sistema:
+		\begin{enumerate}
+			\item Mantenibilidad:
+				\begin{enumerate}
+					\item El software deberá permitir su modificación para trabajar con otras arquitecturas.
+				\end{enumerate}
+		\end{enumerate}
 \end{enumerate}
 
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna}
+Los requerimientos mencionados se detallan en el documento SISE-RS.
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
