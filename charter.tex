@@ -92,7 +92,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Esp. Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de un calefón}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Esp. Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un firmware de autocomprobación para el microcontrolador SAMV71 y un sistema de inyección de soft-errors, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$2040000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,40 +115,56 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
+Las misiones espaciales someten su electrónica a un ambiente agresivo.
+En particular, las grandes variaciones de temperatura y radiación cósmica.
+Por esta razón, se necesitan componentes especiales que fueron sometidos a un largo y costoso proceso de diseño y calificación.
+Luego, la tecnología utilizada tiene un elevado costo y retraso tecnológico por sobre los productos del mercado masivo.
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección
+Actualmente existe una iniciativa comercial para el empleo de componentes sin calificación de uso espacial.
+Esta iniciativa es conocida como \emph{New Space} y es el marco del proyecto a realizar.
 
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
-
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
-
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+El INVAP necesita evaluar si el microcontrolador SAMV71 puede ser usado en la misión espacial Sabiamar.
+El objetivo del proyecto es crear los instrumentos necesarios para realizar la evaluación.
+Las herramientas a desarrollar son:
 
 \begin{itemize}
-	\item ¿Cómo se vincula este proyecto con la misión de la organización?
-	\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-	\item ¿Cuáles son las necesidades que debe satisfacer?
-	\item ¿Por dónde pasa la innovación?
+	\item Un inyector de \emph{soft-errors}.
+	\item Un firmware de autocomprobación.
 \end{itemize}
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase, se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+Un \emph{soft-error} es una falla no destructiva que genera un cambio en el estado del microcontrolador.
+Por lo tanto, el dispositivo conserva su confiabilidad.
+Finalmente, el proyecto debe introducir estos errores en el equipo.
 
-%\vspace{25px}
+Para realizar la inyección de \emph{soft-errors} se propone construir un sistema como se muestra en la figura \ref{fig:diagInyector}.
+Se observa que el usuario podrá describir el ensayo a realizar.
+Luego, se utilizará un servidor \emph{OpenOCD} para crear las instrucciones del \emph{debugger}.
+Finalmente, se inyectarán los errores por protocolo \emph{JTAG}.
 
 \begin{figure}[htpb]
-\centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
-\caption{Diagrama en bloques del sistema}
-\label{fig:diagBloques}
+	\centering 
+	\includegraphics[width=\textwidth]{./Figuras/inyeccion.png}
+	\caption{Diagrama en bloques del sistema de inyección de soft-errors}
+	\label{fig:diagInyector}
 \end{figure}
 
-\vspace{25px}
+La herramienta final del proyecto es el firmware de autocomprobación.
+En la figura \ref{fig:diagSelfTesting} se puede observar el diagrama en bloques propuesto.
+Como se puede ver, este recurso deberá: verificar el estado de los periféricos, construir un informe y enviar los reportes para su análisis.
 
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
-\end{consigna}
+\begin{figure}[htpb]
+	\centering 
+	\includegraphics[width=\textwidth]{./Figuras/selfTesting.png}
+	\caption{Diagrama en bloques del firmware de autocomprobación}
+	\label{fig:diagSelfTesting}
+\end{figure}
 
+Se espera que el proyecto agregue valor al INVAP de las siguientes maneras:
+
+\begin{itemize}
+	\item Simular de forma acelerada los 5 años de la misión Sabiamar
+	\item Presupuestar nuevo hardware para las misiones futuras
+\end{itemize}
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
