@@ -7,7 +7,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Sistema de Inyección de Soft-errors (SEU, SEFI) en un microcontrolador SAMV71} 
+\titulo{Evaluador de microcontroladores para misiones espaciales} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 %\posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -23,7 +23,7 @@
 \director{Roberto Cibils}
 \pertenenciaDirector{INVAP} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
-\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
+\codirector{Damián Rosetani} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
@@ -39,7 +39,7 @@
 \pertenenciaJurTres{pertenencia (3)}
  
 \fechaINICIO{24 de junio de 2021}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{15 de julio de 2021} 	%Fecha de final de cursada de GdP
+\fechaFINALPlan{19 de agosto de 2021} 	%Fecha de final de cursada de GdP
 \fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
 
 
@@ -70,11 +70,13 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 6 inclusive                 & 04/07/2021 \\ \hline
-%2      & Se completa hasta el punto 7 inclusive
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & dd/mm/aaaa \\ \hline
-%3      & Se completa hasta el punto 11 inclusive                & dd/mm/aaaa \\ \hline
+2      & Se cambia el nombre del proyecto \newline
+		 Se conforma con las políticas de confidencialidad de INVAP \newline
+		 Correcciones de redacción \newline
+		 Se realiza hasta el punto 8 inclusive                  & 11/07/2021 \\ \hline
+3      & Se cambia el logo de FIUBA \newline
+         Se actualiza el costo del proyecto \newline
+         Se completa hasta el punto 9 inclusive                & 13/07/2021 \\ \hline
 %4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
 \end{tabularx}
 \end{table}
@@ -92,7 +94,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Esp. Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un firmware de autocomprobación para el microcontrolador SAMV71 y un sistema de inyección de soft-errors, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$2040000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Esp. Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un firmware de autocomprobación para el microcontrolador seleccionado y un sistema de inyección de soft-errors, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$500, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,60 +117,60 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-Las misiones espaciales someten su electrónica a un ambiente agresivo.
-En particular, las grandes variaciones de temperatura y radiación cósmica.
+Las misiones espaciales someten su electrónica a la radiación cósmica.
 Por esta razón, se necesitan componentes especiales que fueron sometidos a un largo y costoso proceso de diseño y calificación.
 Luego, la tecnología utilizada tiene un elevado costo y retraso tecnológico por sobre los productos del mercado masivo.
 
-Actualmente existe una iniciativa comercial para el empleo de componentes sin calificación de uso espacial.
-Esta iniciativa es conocida como \emph{New Space} y es el marco del proyecto a realizar.
+Actualmente existe una iniciativa comercial para el empleo en misiones espaciales de componentes sin calificación para uso espacial.
+Esta iniciativa es conocida como \emph{New Space} y provee un contexto para el proyecto a realizar.
 
-El INVAP necesita evaluar si el microcontrolador SAMV71 puede ser usado en la misión espacial Sabiamar.
+INVAP necesita evaluar si un microcontrolador en particular puede ser usado en sus misiones espaciales.
 El objetivo del proyecto es crear los instrumentos necesarios para realizar la evaluación.
 Las herramientas a desarrollar son:
 
 \begin{itemize}
-	\item Un inyector de \emph{soft-errors}.
-	\item Un firmware de autocomprobación.
+	\item Inyector por consola de comando (CCI)
+	\item Proceso de dispositivo bajo prueba (DUT)
 \end{itemize}
 
-Un \emph{soft-error} es una falla no destructiva que genera un cambio en el estado del microcontrolador.
-Por lo tanto, el dispositivo conserva su confiabilidad.
-Finalmente, el proyecto debe introducir estos errores en el equipo.
+La radiación cósmica está compuesta por partículas enérgicamente cargadas.
+Una de estas partículas puede impactar sobre un microcontrolador.
+Si esto ocurre, se produce una \emph{no funcionalidad} debido a un pulso transitorio en la lógica del microcontrolador o sus circuitos de apoyo.
+Esta \emph{no funcionalidad} se manifiesta como un \emph{soft-error} no destructivo.
+Finalmente, los \emph{soft-errors} son un tipo de error en donde una señal o dato es incorrecto.
 
 Para realizar la inyección de \emph{soft-errors} se propone construir un sistema como se muestra en la figura \ref{fig:diagInyector}.
 Se observa que el usuario podrá describir el ensayo a realizar.
-Luego, se utilizará un servidor \emph{OpenOCD} para crear las instrucciones del \emph{debugger}.
+Luego, se utilizará un servidor \emph{OCD} para crear las instrucciones del \emph{debugger}.
 Finalmente, se inyectarán los errores por protocolo \emph{JTAG}.
 
 \begin{figure}[htpb]
 	\centering 
-	\includegraphics[width=\textwidth]{./Figuras/inyeccion.png}
-	\caption{Diagrama en bloques del sistema de inyección de soft-errors}
+	\includegraphics[width=\textwidth]{./Figuras/CCIbloques.png}
+	\caption{Diagrama en bloques del Inyector por consola de comando (CCI)}
 	\label{fig:diagInyector}
 \end{figure}
 
-La herramienta final del proyecto es el firmware de autocomprobación.
+El segundo módulo del proyecto es el firmware de autocomprobación.
 En la figura \ref{fig:diagSelfTesting} se puede observar el diagrama en bloques propuesto.
 Como se puede ver, este recurso deberá: verificar el estado de los periféricos, construir un informe y enviar los reportes para su análisis.
 
 \begin{figure}[htpb]
 	\centering 
-	\includegraphics[width=\textwidth]{./Figuras/selfTesting.png}
-	\caption{Diagrama en bloques del firmware de autocomprobación}
+	\includegraphics[width=0.8\textwidth]{./Figuras/DUTbloques.png}
+	\caption{Diagrama en bloques del Proceso de dispositivo bajo prueba (DUT)}
 	\label{fig:diagSelfTesting}
 \end{figure}
 
 Se espera que el proyecto agregue valor al INVAP de las siguientes maneras:
 
 \begin{itemize}
-	\item Simulando de forma acelerada los 5 años de la misión Sabiamar
+	\item Simulando de forma acelerada la duración de una misión espacial
 	\item Permitiendo presupuestar nuevo hardware para las misiones futuras
 \end{itemize}
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
-
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -179,7 +181,7 @@ Se espera que el proyecto agregue valor al INVAP de las siguientes maneras:
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 Cliente       & \clientename      &\empclientename	& Ingeniero \\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Usuario final & -                 &\empclientename	& -       	\\ \hline
+Usuario final & Desarrollo de software &\empclientename	& -       	\\ \hline
 \end{tabularx}
 \end{table}
 
@@ -187,14 +189,16 @@ Usuario final & -                 &\empclientename	& -       	\\ \hline
 	\item Cliente: cumple múltiples roles en el proyecto, valorar el tiempo que invierte.
 \end{itemize}
 
-
-
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
 El propósito de este proyecto es proporcionar herramientas para:
 
 \begin{itemize}
+	\item Medir el nivel de susceptibilidad del software que se ejecuta en el DUT a los efectos de la radiación
+	\item Evaluar el origen de dicha susceptibilidad
+	\item Comparar la efectividad de distintas estrategias de mitigación incorporadas al software del DUT para mitigar los efectos de la radiación
+	\item Obtener la figura de mérito (FOM) del DUT
 	\item Simular los efectos del ambiente espacial en un microcontrolador.
 	\item Evaluar si un dispositivo del mercado masivo puede ser utilizado en futuras misiones.
 \end{itemize}
@@ -204,8 +208,9 @@ El propósito de este proyecto es proporcionar herramientas para:
 
 El proyecto incluye en su alcance la creación de:
 \begin{itemize}
-	\item Un sistema de inyección de \emph{soft-errors}
-	\item Un firmware de autocomprobación de periféricos para el microcontrolador SAMV71
+	\item Un sistema de inyección de \emph{soft-errors} controlado por consola de comandos
+	\item Un firmware de autocomprobación de periféricos para el microcontrolador seleccionado por INVAP
+	\item La ejecución de ensayos de \emph{soft-errors} con la finalidad de validar el proyecto
 \end{itemize}
 
 El presente proyecto no incluye:
@@ -221,69 +226,157 @@ El presente proyecto no incluye:
 Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Se tendrá acceso irrestricto al microcontrolador SAMV71 antes del día 01/11/2021
+	\item Se tendrá acceso irrestricto al microcontrolador propuesto por INVAP antes del día 01/01/2022
 \end{itemize}
 
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-A continuación se enumeran los requerimientos del proyecto según lo especificado en el estándar IEEE Std. 830-1998:
+Para comprender los requerimientos del proyecto, se enumeran las siguientes definiciones, acrónimos y abreviaturas:
 
 \begin{enumerate}
-	\item Interfaces externas:
-		\begin{enumerate}
-			\item Se comunicará de forma bidireccional con \emph{OpenOCD} a través de \emph{TCP} o
-			\emph{Telnet}
-			\item Se deberá recibir y capturar la información proveniente por puerto \emph{Serial}
-			del microcontrolador SAMV71
-		\end{enumerate}
-	\item Funciones:
-		\begin{enumerate}
-			\item Inyección de \emph{soft-errors}:
-				\begin{enumerate}
-					\item Sobrescribirá los valores en memoria RAM
-					\item Invertirá el valor de un bit en la memoria RAM
-					\item Sobrescribirá valores en los registros internos
-					\item Invertirá el valor de un bit dentro de un registro interno
-					\item Reportará el estado del microcontrolador antes de realizar una
-					inyección de \emph{soft-errors}
-					\item Interpretará una descripción de ensayo escrita en \emph{Python 3} y
-					ejecutará las inyecciones según le indique
-					\item Aceptará descripciones de ensayo que impongan una tasa de error
-					para cada registro interno
-					\item Procesará descripciones de ensayo que impongan una tasa de error
-					para una posición o rango de memoria RAM
-					\item Las descripciones de ensayo podrán especificar probabilidades de
-					error con una resolución de 1 bit
-				\end{enumerate}
-			\item Firmware de autocomprobación:
-				\begin{enumerate}
-					\item Detectará el funcionamiento anormal de los periféricos del microcontrolador SAMV71
-					\item Reportará periódicamente el estado de los periféricos utilizando el protocolo \emph{Serial}
-					\item Los reportes tendrán un formato \emph{CSV} y un tamaño menor a 5 kB
-				\end{enumerate}
-			\item Almacenamiento de reportes:
-				\begin{enumerate}
-					\item Se incluirá un \emph{timestamp} de recepción del reporte
-					\item Se generarán histogramas para su análisis estadístico
-				\end{enumerate}
-		\end{enumerate}
-	\item Rendimiento:
-		\begin{enumerate}
-			\item El inyector de \emph{soft-errors} deberá realizar la inserción solicitada en un tiempo menor a 10 ms
-		\end{enumerate}
-	\item Restricciones de diseño:
-		\begin{enumerate}
-			\item Se utilizará el microcontrolador SAMV71 como dispositivo principal
-		\end{enumerate}
-	\item Atributos del sistema:
-		\begin{enumerate}
-			\item Mantenibilidad:
-				\begin{enumerate}
-					\item El software deberá permitir su modificación para trabajar con otras arquitecturas.
-				\end{enumerate}
-		\end{enumerate}
+	\item Definiciones:
+	\begin{itemize}
+		\item Single event effect: efecto de una partícula enérgicamente cargada sobre un microcontrolador.
+		\item Single event funtional interrupt: interrupción causada por el impacto de una sola partícula que conduce a una no funcionalidad temporal.
+		\item Single event upset: pulso transitorio en la lógica o circuitos de apoyo. Son \emph{soft-errors} no destructivos.
+		\item Soft-error: tipo de error en donde una señal o dato es incorrecto.
+	\end{itemize}
+	\item Acrónimos:
+	\begin{itemize}
+		\item API: interfaz de programación de aplicaciones.
+		\item DUT: dispositivo bajo prueba (microcontrolador).
+		\item FOM: figura de mérito.
+		\item IEEE: Instituto de Ingenieros Eléctricos y Electrónicos.
+		\item OCD: on-chip debugger.
+		\item SEE: single event effect.
+		\item SEFI: single event functional interrupt.
+		\item SEU: single event upset.
+		\item TBD: a ser determinado.
+		\item UART: universal asynchronous receiver-trasmitter.
+	\end{itemize}
+	\item Abreviaturas:
+	\begin{itemize}
+		\item Std: estándar.
+	\end{itemize}
+\end{enumerate}
+
+A continuación se enumeran los requerimientos del proyecto según lo especificado en el estándar IEEE Std. 830-1998:
+
+\subsection{Interfaces externas}
+\label{sub:interfacesExternas}
+
+\begin{enumerate}
+	\item CCI:
+	\begin{enumerate}
+		\item Con usuario:
+		\begin{itemize}
+			\item Deberá representar todos los caracteres de ISO Std. 10646
+			\item Conformará con las secuencias de escape de ISO Std. 6429
+			\item Usará el castellano como idioma conforme a la Real Academia Española
+			\item Se aceptarán barbarismos que conformen la interfaz con los sistemas UNIX
+			\item No deberá producir destellos ni cambios bruscos en su intensidad lumínica
+			\item No deberá producir sonidos
+			\item Títulos:
+			\begin{itemize}
+				\item Los títulos deberán ser cortos
+				\item Los títulos deberán estar correctamente capitalizados
+				\item Los títulos deberán ser únicos
+			\end{itemize}
+			\item Comandos:
+			\begin{itemize}
+				\item El sistema se iniciará con el comando ``python sise.py''
+				\item El sistema imprimirá en pantalla un manual de ayuda con el comando ``python sise.py --help''
+				\item Se podrá exportar la configuración del último ensayo realizado con el comando ``python sise.py --export=Ruta''
+				\item Se podrá importar la configuración de un ensayo a realizar con el comando ``python sise.py --import=Ruta/Archivo''
+			\end{itemize}
+			\item Menú:
+			\begin{itemize}
+				\item El sistema de menú tendrá una arquitectura de árbol
+				\item La navegación entre los nodos del menú será consistente en todo el árbol
+				\item Se indicará en todo momento el nodo actual y todos los nodos que lleven a la raíz del árbol
+			\end{itemize}
+		\end{itemize}
+		\item Con DUT:
+		\begin{itemize}
+			\item La comunicación con UART será en 9600 baudios, 8 bits de datos, 1 bit de parada y 0 bits de paridad
+			\item La comunicación con el debugger conformará con la configuración recomendada por el fabricante
+		\end{itemize}
+	\end{enumerate}
+	\item Proceso de DUT:
+	\begin{itemize}
+		\item La comunicación con el debugger estará disponible durante todo el flujo de la secuencia
+		\item Durante el flujo de la secuencia, la UART solo podrá transmitir información
+		\item En el periodo entre secuencias, la UART podrá recibir y transmitir información
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Funciones}
+\label{sub:funciones}
+
+\begin{enumerate}
+	\item CCI:
+	\begin{itemize}
+		\item Detendrá la secuencia de duración $ T $ del DUT en un momento $ t $ definido como \\ $ t \, \epsilon \, \rm I\!R^+ \wedge t \, < T$
+		\item Con la secuencia del DUT detenida, inyectará un SEFI-SEU que invertirá el valor de un bit de un registro interno
+		\item La descripción del ensayo definirá el momento $ t $ de inyección de SEFI-SEU durante la secuencia de duración $ T $ y será un múltiplo de $\Delta t$ definido como $ \Delta t=T/N \, \forall \, N \epsilon \, \rm I\!N $
+		\item La descripción del ensayo definirá la cantidad $ M $ de registros involucrados en la prueba
+		\item La cantidad de secuencias $ L $ a ejecutar quedará definida como $ L = N \times M $
+		\item Se ejecutará una secuencia de control sin inyección de SEFI-SEU antes de correr las $ L $ secuencias
+		\item Por cada ejecución de una secuencia se obtendrá un valor de salida $ S $ del DUT
+		\item Cada valor de salida $ S $ será persistido para su análisis
+		\item Cada valor de salida $ S $ quedará asociado a su correspondiente secuencia con su inyección de SEFI-SEU y momento $ t $
+		\item Se generará un archivo de resultados llamado\\ ``resultados-AAAAMMDDHHmm.res'', siendo AAAA el año del ensayo, MM el mes, DD el día, HH la hora y mm los minutos
+		\item El archivo de resultados acumulará los SEFI y SEU de cada registro del DUT
+		\item El archivo de resultados acumulará los SEU de cada periférico del DUT
+		\item El archivo de resultados indicará el FOM del registro definido como: \\
+		$ FOM_{REG} = (1 - \frac{SEU}{SEFI}) $
+		\item El archivo de resultados indicará el FOM del DUT definido como: \\
+		$ FOM_{DUT} = \frac{1}{M} \times \sum_{i = 1}^{i = M}FOM_{i} $ siendo $ i $ el número que representa un registro del DUT
+		\item Se generará un archivo de histogramas llamado ``histogramas-AAAAMMDDmm.his'' siendo AAAA el año del ensayo, MM el mes, DD el día, HH la hora y mm los minutos
+		\item El archivo de histogramas tendrá una tabla que indique la frecuencia de fallos como función de los SEFIs por registro del DUT
+		\item El archivo de histogramas tendrá una tabla que indique la frecuencia de fallos como función de los SEFIs por periférico del DUT
+	\end{itemize}
+	\item Proceso de DUT:
+	\begin{itemize}
+		\item Deberá correr una secuencia de autoevaluación cuya ejecución durará un tiempo $ T $
+		\item Deberá producir una salida $ S $ que podrá ser un estado o una secuencia de estados
+		\item Este proceso podrá tener una entrada $ E $
+		\item Deberá evaluar el estado de los periféricos del DUT
+		\item Tendrá una función de evaluación para cada uno de los periféricos del DUT
+		\item Se podrá definir por la entrada $ E $ si se desea excluir uno o más periféricos en la secuencia
+		\item Manejará una interrupción del flujo normal de la secuencia y generará una salida $ S $ indicando la excepción, por ejemplo: interrupción por \emph{watchdog}
+		\item La salida $ S $ utilizará la UART del DUT para ser transmitida
+		\item La entrada $ E $ utilizará la UART del DUT para ser recibida
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Requisitos de rendimiento}
+\label{sub:rendimiento}
+
+\begin{itemize}
+	\item La inyección de SEFI-SEU podrá tener un desvío en su momento $ t $ de 10 ms
+	\item El desvío tolerado de $ t $ deberá representar como máximo el 1\% de la duración $ T $ de la secuencia del DUT
+	\item Aceptará un $ \Delta t $ que como mínimo represente el 5\% de la duración $ T $ de la secuencia del DUT
+\end{itemize}
+
+\subsection{Restricciones de diseño}
+\label{sub:restriccionesDiseño}
+
+\begin{itemize}
+	\item Se utilizará como dispositivo principal el microcontrolador seleccionado por INVAP
+	\item Se utilizará un sistema operativo de tiempo real para diseñar el Proceso de DUT
+\end{itemize}
+
+\subsection{Atributos del sistema}
+\label{sub:atributos}
+
+\begin{enumerate}
+	\item Mantenibilidad:
+	\begin{itemize}
+		\item El Proceso de DUT se desarrollará con un modelo de capas
+	\end{itemize}
 \end{enumerate}
 
 Los requerimientos mencionados se detallan en el documento SISE-RS.
@@ -291,66 +384,93 @@ Los requerimientos mencionados se detallan en el documento SISE-RS.
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+\begin{itemize}
+	\item Como \emph{ingeniero de desarrollo} quiero \emph{simular} los años previstos para una misión espacial en un periodo de 24 hs para \emph{evaluar} las técnicas de mitigación de errores empleadas. \emph{Story points: 8}, la historia de usuario requiere introducir \emph{soft-errors} con una frecuencia proporcional al ensayo.
+	\item Como \emph{ingeniero de desarrollo} quiero \emph{obtener} la figura de mérito del microcontrolador seleccionado para \emph{decidir} si el dispositivo es adecuado para la misión. \emph{Story points: 34}, la historia de usuario requiere realizar múltiples secuencias de autovalidación con inyecciones de \emph{soft-errors} precisos.
+\end{itemize}
 
-El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
-
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
-\end{consigna}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-
-Los entregables del proyecto son (ejemplo):
+Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Manual de uso
-	\item Diagrama de circuitos esquemáticos
-	\item Código fuente del firmware
-	\item Diagrama de instalación
-	\item Informe final
-	\item etc...
+	\item Código fuente en el repositorio con control de versiones \emph{Gitlab} de INVAP
+	\item Documentación del código con \emph{Doxygen}
+	\item Documentación de las actividades semanales
 \end{itemize}
 
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1
+\item Planificación
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Investigación de la problemática (10 hs)
+	\item Relevamiento de las necesidades del cliente (15 hs)
+	\item Exploración de las posibles tecnologías a emplear (20 hs)
+	\item Investigación sobre el nivel de acceso posible al microcontrolador (5 hs)
+	\item Creación del documento de especificaciones de requerimientos de software (15 hs)
+	\item Elección final de las tecnologías e informe de justificación (15 hs)
+	\item Confección de un documento de planificación del proyecto (20 hs)
+	\item Reunión de control y aceptación de la documentación (1 hs)
+	\item Creación del plan de pruebas y validación (20 hs)
+	\item Reunión final de la planificación (1 hs)
 	\end{enumerate}
-\item Grupo de tareas 2
+\item Logística e infraestructura
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Establecimiento de un canal cifrado con el departamento de IT de INVAP (2 hs)
+	\item Obtención de credenciales para acceder a la infraestructura de INVAP (2 hs)
+	\item Obtención de credenciales para acceder al sistema de control de versiones de INVAP (2 hs)
+	\item Configuración del entorno de trabajo conforme a los lineamientos de INVAP (3 hs)
+	\item Obtención del hardware necesario para la realización del proyecto (10 hs)
 	\end{enumerate}
-\item Grupo de tareas 3
+\item Inyector por consola de comando
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\item Tarea 4 (tantas hs)
-	\item Tarea 5 (tantas hs)
+	\item Integración del servidor OCD (10 hs)
+	\item Creacion de los archivos de configuración para el servidor OCD (30 hs)
+	\item Pruebas de integración servidor OCD-Dispositivo bajo prueba (10 hs)
+	\item Pruebas de rendimiento del servidor OCD (10 hs)
+	\item Determinación de la media y desvío del error temporal de SEFI-SEU (5 hs)
+	\item Creación de API para el servidor OCD (20 hs)
+	\item Pruebas de aceptación de API para el servidor OCD (10 hs)
+	\item Determinación y comparación de la media y desvío del error temporal de SEFI-SEU (5 hs)
+	\item Servicio de interfaz serie para el dispositivo bajo prueba (20 hs)
+	\item Pruebas de rendimiento de la interfaz serie (5 hs)
+	\item Servicio de persistencia de datos (20 hs)
+	\item Pruebas de aceptación del servicio de persistencia de datos (5 hs)
+	\item Codificación del controlador de ensayos (40 hs)
+	\item Pruebas del controlador de ensayos (10 hs)
+	\item Validación manual de los informes generados (10 hs)
+	\item Creación de la consola de usuario (15 hs)
+	\item Creación de pruebas automáticas para la consola de usuario (10 hs)
+	\item Validación de la consola de usuario por parte del cliente (5 hs)
+	\end{enumerate}
+\item Proceso en DUT
+	\begin{enumerate}
+		\item Diseño de la estrategia de autovalidación del estado general del DUT (25 hs)
+		\item Diseño de la estrategia de la validación del estado de cada periférico (30 hs)
+		\item Análisis de los posibles SEFI-SEU que alteren la secuencia de autovalidación general (25 hs)
+		\item Diseño de estrategias de manejo de excepciones (25 hs)
+		\item Reunión de control y aceptación del diseño (1 hs)
+		\item Codificación del firmware (50 hs)
+		\item Pruebas de manejo de excepciones (25 hs)
+	\end{enumerate}
+\item Procesos de cierre
+	\begin{enumerate}
+		\item Pruebas automáticas de todo el sistema (6 hs)
+		\item Obtención de la figura de mérito del microcontrolador evaluado (1 hs)
+		\item Creación de la memoria del trabajo terminado (20 hs)
+		\item Creación de la presentación para la defensa pública (5 hs)
+		\item Creación del video para la defensa pública (5 hs)
+		\item Defensa pública (0,5 hs)
+		\item Agradecimiento a todos los involucrados (0,5 hs)
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: (tantas hs)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
-
-\end{consigna}
+Cantidad total de horas: (600 hs)
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
