@@ -4,8 +4,6 @@
 ]{charter} 
 
 
-
-
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
 \titulo{Evaluador de microcontroladores para misiones espaciales} 
 
@@ -14,20 +12,20 @@
 %\posgrado{Carrera de Especialización en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Intelegencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
-\posgrado{Maestría en Internet de las cosas}
+\posgrado{Maestría en Internet de las Cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 \autor{Gonzalo Nahuel Vaca} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Roberto Cibils}
+\director{Ing. Roberto Cibils}
 \pertenenciaDirector{INVAP} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
-\codirector{Damián Rosetani} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
-\pertenenciaCoDirector{FIUBA}
+\codirector{Ing. Damián Rosetani} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
+\pertenenciaCoDirector{INVAP}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Roberto Cibils}
+\cliente{Ing. Damián Rosetani}
 \empresaCliente{INVAP}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
@@ -70,11 +68,11 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 6 inclusive                 & 04/07/2021 \\ \hline
-2      & Se cambia el nombre del proyecto \newline
+1.1    & Se cambia el nombre del proyecto \newline
 		 Se conforma con las políticas de confidencialidad de INVAP \newline
 		 Correcciones de redacción \newline
 		 Se realiza hasta el punto 8 inclusive                  & 11/07/2021 \\ \hline
-3      & Se cambia el logo de FIUBA \newline
+2      & Se cambia el logo de FIUBA \newline
          Se actualiza el costo del proyecto \newline
          Se completa hasta el punto 9 inclusive                & 13/07/2021 \\ \hline
 %4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
@@ -94,7 +92,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Esp. Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un firmware de autocomprobación para el microcontrolador seleccionado y un sistema de inyección de soft-errors, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$500, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Esp. Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un firmware de autocomprobación para el microcontrolador seleccionado y un sistema de inyección de soft-errors, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$100000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -180,6 +178,7 @@ Se espera que el proyecto agregue valor al INVAP de las siguientes maneras:
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 Cliente       & \clientename      &\empclientename	& Ingeniero \\ \hline
+Orientador    & Ing. Roberto Cibils & INVAP & Ingeniero \\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
 Usuario final & Desarrollo de software &\empclientename	& -       	\\ \hline
 \end{tabularx}
@@ -301,7 +300,7 @@ A continuación se enumeran los requerimientos del proyecto según lo especifica
 		\item Con DUT:
 		\begin{itemize}
 			\item La comunicación con UART será en 9600 baudios, 8 bits de datos, 1 bit de parada y 0 bits de paridad
-			\item La comunicación con el debugger conformará con la configuración recomendada por el fabricante
+			\item La comunicación con el debugger se conformará con la configuración recomendada por el fabricante
 		\end{itemize}
 	\end{enumerate}
 	\item Proceso de DUT:
@@ -384,9 +383,27 @@ Los requerimientos mencionados se detallan en el documento SISE-RS.
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
+En esta sección se muestran dos historias de usuarios y su puntaje.
+El puntaje es una estimación del esfuerzo necesario para cumplir una historia.
+Para determinar la dificultad se consideran los siguientes factores:
+
 \begin{itemize}
-	\item Como \emph{ingeniero de desarrollo} quiero \emph{simular} los años previstos para una misión espacial en un periodo de 24 hs para \emph{evaluar} las técnicas de mitigación de errores empleadas. \emph{Story points: 8}, la historia de usuario requiere introducir \emph{soft-errors} con una frecuencia proporcional al ensayo.
-	\item Como \emph{ingeniero de desarrollo} quiero \emph{obtener} la figura de mérito del microcontrolador seleccionado para \emph{decidir} si el dispositivo es adecuado para la misión. \emph{Story points: 34}, la historia de usuario requiere realizar múltiples secuencias de autovalidación con inyecciones de \emph{soft-errors} precisos.
+	\item Complejidad ciclomática esperada antes del \emph{refactoring}
+	\item Cantidad de módulos necesarios
+	\item Funciones que necesiten correr en tiempo real
+	\item Dificultad para implementar \emph{TDD} o \emph{BDD}
+\end{itemize}
+
+El puntaje se expresa como un número primo entre 1 y 29.
+Entonces, existen 10 puntajes posibles.
+Sin embargo, una sucesión de números primos propone una escala no lineal.
+Finalmente, el número 1 corresponde a una historia trivial mientras que 29 se asigna a aquella que demande el máximo esfuerzo.
+
+A continuación se enumeran las dos historias de usuario:
+
+\begin{itemize}
+	\item Como \emph{ingeniero de desarrollo} quiero \emph{simular} los años previstos para una misión espacial en un periodo de 24 hs para \emph{evaluar} las técnicas de mitigación de errores empleadas. \emph{Story points: 7}, la historia de usuario requiere introducir \emph{soft-errors} con una frecuencia proporcional al ensayo.
+	\item Como \emph{ingeniero de desarrollo} quiero \emph{obtener} la figura de mérito del microcontrolador seleccionado para \emph{decidir} si el dispositivo es adecuado para la misión. \emph{Story points: 29}, la historia de usuario requiere realizar múltiples secuencias de autovalidación con inyecciones de \emph{soft-errors} precisos.
 \end{itemize}
 
 
@@ -489,6 +506,41 @@ Armar el AoN a partir del WBS definido en la etapa anterior.
 \includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
 \caption{Diagrama en \textit{Activity on Node}}
 \label{fig:AoN}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering 
+	\includegraphics[width=\textwidth]{./Figuras/AoN1.png}
+	\caption{Diagrama en \textit{Activity on Node}: planificación}
+	\label{fig:AoN1}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{./Figuras/AoN2.png}
+	\caption{Diagrama en \textit{Activity on Node}: logística e infraestructura}
+	\label{fig:AoN2}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering 
+	\includegraphics[width=\textwidth]{./Figuras/AoN3.png}
+	\caption{Diagrama en \textit{Activity on Node}: inyector por consola de comando}
+	\label{fig:AoN3}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{./Figuras/AoN4.png}
+	\caption{Diagrama en \textit{Activity on Node}: proceso en DUT}
+	\label{fig:AoN4}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{./Figuras/AoN5.png}
+	\caption{Diagrama en \textit{Activity on Node}: procesos de cierre}
+	\label{fig:AoN5}
 \end{figure}
 
 Indicar claramente en qué unidades están expresados los tiempos.
