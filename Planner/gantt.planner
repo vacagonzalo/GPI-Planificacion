@@ -82,196 +82,200 @@
         </predecessors>
       </task>
     </task>
-    <task id="13" name="Log&#xED;stica e infraestructura" note="" work="72000" start="20210820T110000Z" end="20210827T110000Z" work-start="20210820T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <predecessors>
-        <predecessor id="1" predecessor-id="12" type="FS"/>
-      </predecessors>
-      <task id="14" name="Establecimiento de un canal cifrado con el departamento de IT de INVAP" note="" work="7200" start="20210820T110000Z" end="20210823T090000Z" work-start="20210820T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+    <task id="13" name="Log&#xED;stica e infraestructura" note="" work="68400" start="20210820T110000Z" end="20210827T100000Z" work-start="20210820T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="14" name="Establecimiento de un canal cifrado con el departamento de IT de INVAP" note="" work="7200" start="20210820T110000Z" end="20210823T090000Z" work-start="20210820T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="12" type="FS"/>
+        </predecessors>
+      </task>
       <task id="15" name="Obtenci&#xF3;n de credenciales para acceder a la infraestructura de INVAP" note="" work="7200" start="20210823T090000Z" end="20210823T110000Z" work-start="20210823T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="14" type="FS"/>
         </predecessors>
       </task>
-      <task id="16" name="Configuraci&#xF3;n del entrono de trabajo conforme a los lineamientos de INVAP" note="" work="10800" start="20210823T110000Z" end="20210824T100000Z" work-start="20210823T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="16" name="Obtenci&#xF3;n de credenciales para el sistema de control de versiones de INVAP" note="" work="7200" start="20210823T110000Z" end="20210824T090000Z" work-start="20210823T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="15" type="FS"/>
         </predecessors>
       </task>
-      <task id="17" name="Configuraci&#xF3;n del entorno de trabajo conforme a los lineamientos de INVAP" note="" work="10800" start="20210824T100000Z" end="20210825T090000Z" work-start="20210824T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="17" name="Configuraci&#xF3;n del entrono de trabajo conforme a los lineamientos de INVAP" note="" work="10800" start="20210824T090000Z" end="20210824T120000Z" work-start="20210824T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="16" type="FS"/>
         </predecessors>
       </task>
-      <task id="18" name="Obtenci&#xF3;n del hardware necesario para la realizaci&#xF3;n del proyecto" note="" work="36000" start="20210825T090000Z" end="20210827T110000Z" work-start="20210825T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="18" name="Obtenci&#xF3;n del hardware necesario para la realizaci&#xF3;n del proyecto" note="" work="36000" start="20210824T120000Z" end="20210827T100000Z" work-start="20210825T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="17" type="FS"/>
         </predecessors>
       </task>
-      <task id="19" name="Fin de log&#xED;stica e infraestructura" note="" work="0" start="20210827T110000Z" end="20210827T110000Z" work-start="20210827T110000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+      <task id="19" name="Fin de log&#xED;stica e infraestructura" note="" work="0" start="20210827T100000Z" end="20210827T100000Z" work-start="20210827T100000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="18" type="FS"/>
         </predecessors>
       </task>
     </task>
-    <task id="20" name="Inyector por consola de comando" note="" work="864000" start="20210827T110000Z" end="20211119T110000Z" work-start="20210827T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <predecessors>
-        <predecessor id="1" predecessor-id="19" type="FS"/>
-      </predecessors>
-      <task id="21" name="Integraci&#xF3;n del servidor OCD" note="" work="36000" start="20210827T110000Z" end="20210901T090000Z" work-start="20210827T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="22" name="Creaci&#xF3;n de los archivos de configuraci&#xF3;n para el servidor OCD" note="" work="108000" start="20210901T090000Z" end="20210910T110000Z" work-start="20210901T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="20" name="Inyector por consola de comando" note="" work="864000" start="20210827T100000Z" end="20211119T100000Z" work-start="20210827T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="21" name="Integraci&#xF3;n del servidor OCD" note="" work="36000" start="20210827T100000Z" end="20210831T120000Z" work-start="20210827T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="19" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="22" name="Creaci&#xF3;n de los archivos de configuraci&#xF3;n para el servidor OCD" note="" work="108000" start="20210831T120000Z" end="20210910T100000Z" work-start="20210901T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="21" type="FS"/>
         </predecessors>
       </task>
-      <task id="23" name="Pruebas de integraci&#xF3;n servidor OCD-DUT" note="" work="36000" start="20210910T110000Z" end="20210915T090000Z" work-start="20210910T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="23" name="Pruebas de integraci&#xF3;n servidor OCD-DUT" note="" work="36000" start="20210910T100000Z" end="20210914T120000Z" work-start="20210910T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="22" type="FS"/>
         </predecessors>
       </task>
-      <task id="24" name="Pruebas de rendimiento del servidor OCD" note="" work="36000" start="20210915T090000Z" end="20210917T110000Z" work-start="20210915T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="24" name="Pruebas de rendimiento del servidor OCD" note="" work="36000" start="20210914T120000Z" end="20210917T100000Z" work-start="20210915T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="23" type="FS"/>
         </predecessors>
       </task>
-      <task id="25" name="Determinaci&#xF3;n de la media y desv&#xED;o del error temporal de SEFI-SEU" note="" work="18000" start="20210917T110000Z" end="20210920T120000Z" work-start="20210917T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="25" name="Determinaci&#xF3;n de la media y desv&#xED;o del error temporal de SEFI-SEU" note="" work="18000" start="20210917T100000Z" end="20210920T110000Z" work-start="20210917T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="24" type="FS"/>
         </predecessors>
       </task>
-      <task id="26" name="Creaci&#xF3;n de API para el servidor OCD" note="" work="72000" start="20210920T120000Z" end="20210927T120000Z" work-start="20210921T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="26" name="Creaci&#xF3;n de API para el servidor OCD" note="" work="72000" start="20210920T110000Z" end="20210927T110000Z" work-start="20210920T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="25" type="FS"/>
         </predecessors>
       </task>
-      <task id="27" name="Pruebas de aceptaci&#xF3;n de API para el servidor OCD" note="" work="36000" start="20210927T120000Z" end="20210930T100000Z" work-start="20210928T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="27" name="Pruebas de aceptaci&#xF3;n de API para el servidor OCD" note="" work="36000" start="20210927T110000Z" end="20210930T090000Z" work-start="20210927T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="26" type="FS"/>
         </predecessors>
       </task>
-      <task id="28" name="Determinaci&#xF3;n y comparaci&#xF3;n de la media y desv&#xED;o del error temporal SEFI-SEU" note="" work="18000" start="20210930T100000Z" end="20211001T110000Z" work-start="20210930T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="28" name="Determinaci&#xF3;n y comparaci&#xF3;n de la media y desv&#xED;o del error temporal SEFI-SEU" note="" work="18000" start="20210930T090000Z" end="20211001T100000Z" work-start="20210930T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="27" type="FS"/>
         </predecessors>
       </task>
-      <task id="29" name="Servicio de interfaz serie para el dispositivo bajo prueba" note="" work="72000" start="20211001T110000Z" end="20211008T110000Z" work-start="20211001T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="29" name="Servicio de interfaz serie para el dispositivo bajo prueba" note="" work="72000" start="20211001T100000Z" end="20211008T100000Z" work-start="20211001T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="28" type="FS"/>
         </predecessors>
       </task>
-      <task id="30" name="Pruebas de rendimiento de la interfaz serie" note="" work="18000" start="20211008T110000Z" end="20211011T120000Z" work-start="20211008T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="30" name="Pruebas de rendimiento de la interfaz serie" note="" work="18000" start="20211008T100000Z" end="20211011T110000Z" work-start="20211008T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="29" type="FS"/>
         </predecessors>
       </task>
-      <task id="31" name="Servicio de persistencia de datos" note="" work="72000" start="20211011T120000Z" end="20211018T120000Z" work-start="20211012T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="31" name="Servicio de persistencia de datos" note="" work="72000" start="20211011T110000Z" end="20211018T110000Z" work-start="20211011T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="30" type="FS"/>
         </predecessors>
       </task>
-      <task id="32" name="Pruebas de aceptaci&#xF3;n del servicio de persistencia de datos" note="" work="18000" start="20211018T120000Z" end="20211020T090000Z" work-start="20211019T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="32" name="Pruebas de aceptaci&#xF3;n del servicio de persistencia de datos" note="" work="18000" start="20211018T110000Z" end="20211019T120000Z" work-start="20211018T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="31" type="FS"/>
         </predecessors>
       </task>
-      <task id="33" name="Codificaci&#xF3;n del controlador de ensayos" note="" work="144000" start="20211020T090000Z" end="20211103T090000Z" work-start="20211020T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="33" name="Codificaci&#xF3;n del controlador de ensayos" note="" work="144000" start="20211019T120000Z" end="20211102T120000Z" work-start="20211020T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="32" type="FS"/>
         </predecessors>
       </task>
-      <task id="34" name="Pruebas de control de ensayos" note="" work="36000" start="20211103T090000Z" end="20211105T110000Z" work-start="20211103T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="34" name="Pruebas de control de ensayos" note="" work="36000" start="20211102T120000Z" end="20211105T100000Z" work-start="20211103T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="33" type="FS"/>
         </predecessors>
       </task>
-      <task id="35" name="Validaci&#xF3;n manual de los informes generados" note="" work="36000" start="20211105T110000Z" end="20211110T090000Z" work-start="20211105T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="35" name="Validaci&#xF3;n manual de los informes generados" note="" work="36000" start="20211105T100000Z" end="20211109T120000Z" work-start="20211105T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="34" type="FS"/>
         </predecessors>
       </task>
-      <task id="36" name="Creaci&#xF3;n de la consola de usuario" note="" work="54000" start="20211110T090000Z" end="20211115T120000Z" work-start="20211110T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="36" name="Creaci&#xF3;n de la consola de usuario" note="" work="54000" start="20211109T120000Z" end="20211115T110000Z" work-start="20211110T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="35" type="FS"/>
         </predecessors>
       </task>
-      <task id="37" name="Creaci&#xF3;n de pruebas autom&#xE1;ticas para la consola de usuario" note="" work="36000" start="20211115T120000Z" end="20211118T100000Z" work-start="20211116T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="37" name="Creaci&#xF3;n de pruebas autom&#xE1;ticas para la consola de usuario" note="" work="36000" start="20211115T110000Z" end="20211118T090000Z" work-start="20211115T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="36" type="FS"/>
         </predecessors>
       </task>
-      <task id="38" name="Validaci&#xF3;n de la consola de usuario por parte del cliente" note="" work="18000" start="20211118T100000Z" end="20211119T110000Z" work-start="20211118T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="38" name="Validaci&#xF3;n de la consola de usuario por parte del cliente" note="" work="18000" start="20211118T090000Z" end="20211119T100000Z" work-start="20211118T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="37" type="FS"/>
         </predecessors>
       </task>
-      <task id="39" name="Fin de inyector por consola de comando" note="" work="0" start="20211119T110000Z" end="20211119T110000Z" work-start="20211119T110000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+      <task id="39" name="Fin de inyector por consola de comando" note="" work="0" start="20211119T100000Z" end="20211119T100000Z" work-start="20211119T100000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="38" type="FS"/>
         </predecessors>
       </task>
     </task>
-    <task id="40" name="Proceso en DUT" note="" work="651600" start="20211119T110000Z" end="20220121T120000Z" work-start="20211119T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <predecessors>
-        <predecessor id="1" predecessor-id="39" type="FS"/>
-      </predecessors>
-      <task id="41" name="Dise&#xF1;o de la estrategia de autovalidaci&#xF3;n del estado general del DUT" note="" work="90000" start="20211119T110000Z" end="20211129T120000Z" work-start="20211119T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="42" name="Dise&#xF1;o de la estrategia de la validaci&#xF3;n del estado de cada perif&#xE9;rico" note="" work="108000" start="20211129T120000Z" end="20211209T100000Z" work-start="20211130T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="40" name="Proceso en DUT" note="" work="651600" start="20211119T100000Z" end="20220121T110000Z" work-start="20211119T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="41" name="Dise&#xF1;o de la estrategia de autovalidaci&#xF3;n del estado general del DUT" note="" work="90000" start="20211119T100000Z" end="20211129T110000Z" work-start="20211119T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="39" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="42" name="Dise&#xF1;o de la estrategia de la validaci&#xF3;n del estado de cada perif&#xE9;rico" note="" work="108000" start="20211129T110000Z" end="20211209T090000Z" work-start="20211129T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="41" type="FS"/>
         </predecessors>
       </task>
-      <task id="43" name="An&#xE1;lisis de los posibles SEFI-SEU que alteren la secuencia de autovalidaci&#xF3;n general" note="" work="90000" start="20211209T100000Z" end="20211217T110000Z" work-start="20211209T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="43" name="An&#xE1;lisis de los posibles SEFI-SEU que alteren la secuencia de autovalidaci&#xF3;n general" note="" work="90000" start="20211209T090000Z" end="20211217T100000Z" work-start="20211209T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="42" type="FS"/>
         </predecessors>
       </task>
-      <task id="44" name="Dise&#xF1;o de estrategias de manejo de excepciones" note="" work="90000" start="20211217T110000Z" end="20211227T120000Z" work-start="20211217T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="44" name="Dise&#xF1;o de estrategias de manejo de excepciones" note="" work="90000" start="20211217T100000Z" end="20211227T110000Z" work-start="20211217T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="43" type="FS"/>
         </predecessors>
       </task>
-      <task id="45" name="Reuni&#xF3;n de control y aceptaci&#xF3;n del dise&#xF1;o" note="" work="3600" start="20211227T120000Z" end="20211228T090000Z" work-start="20211228T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="45" name="Reuni&#xF3;n de control y aceptaci&#xF3;n del dise&#xF1;o" note="" work="3600" start="20211227T110000Z" end="20211227T120000Z" work-start="20211227T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="44" type="FS"/>
         </predecessors>
       </task>
-      <task id="46" name="Codificaci&#xF3;n del firmware" note="" work="180000" start="20211228T090000Z" end="20220113T110000Z" work-start="20211228T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="46" name="Codificaci&#xF3;n del firmware" note="" work="180000" start="20211227T120000Z" end="20220113T100000Z" work-start="20211228T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="45" type="FS"/>
         </predecessors>
       </task>
-      <task id="47" name="Pruebas de manejo de excepciones" note="" work="90000" start="20220113T110000Z" end="20220121T120000Z" work-start="20220113T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="47" name="Pruebas de manejo de excepciones" note="" work="90000" start="20220113T100000Z" end="20220121T110000Z" work-start="20220113T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="46" type="FS"/>
         </predecessors>
       </task>
-      <task id="48" name="Fin de proceso en DUT" note="" work="0" start="20220121T120000Z" end="20220121T120000Z" work-start="20220121T120000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+      <task id="48" name="Fin de proceso en DUT" note="" work="0" start="20220121T110000Z" end="20220121T110000Z" work-start="20220121T110000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="47" type="FS"/>
         </predecessors>
       </task>
     </task>
-    <task id="49" name="Procesos de cierre" note="" work="136800" start="20220121T120000Z" end="20220624T090000Z" work-start="20220124T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <predecessors>
-        <predecessor id="1" predecessor-id="48" type="FS"/>
-      </predecessors>
-      <task id="50" name="Pruebas autom&#xE1;ticas de todo el sistema" note="" work="21600" start="20220121T120000Z" end="20220125T100000Z" work-start="20220124T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="51" name="Obtenci&#xF3;n de la figura de m&#xE9;rito del microcontrolador evaluado" note="" work="3600" start="20220125T100000Z" end="20220125T110000Z" work-start="20220125T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="49" name="Procesos de cierre" note="" work="136800" start="20220121T110000Z" end="20220624T090000Z" work-start="20220121T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="50" name="Pruebas autom&#xE1;ticas de todo el sistema" note="" work="21600" start="20220121T110000Z" end="20220125T090000Z" work-start="20220121T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="48" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="51" name="Obtenci&#xF3;n de la figura de m&#xE9;rito del microcontrolador evaluado" note="" work="3600" start="20220125T090000Z" end="20220125T100000Z" work-start="20220125T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <constraint type="start-no-earlier-than" time="20220101T000000Z"/>
         <predecessors>
           <predecessor id="1" predecessor-id="50" type="FS"/>
         </predecessors>
       </task>
-      <task id="52" name="Creaci&#xF3;n de la memoria del trabajo terminado" note="" work="72000" start="20220125T110000Z" end="20220201T110000Z" work-start="20220125T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="52" name="Creaci&#xF3;n de la memoria del trabajo terminado" note="" work="72000" start="20220125T100000Z" end="20220201T100000Z" work-start="20220125T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="51" type="FS"/>
         </predecessors>
       </task>
-      <task id="53" name="Creaci&#xF3;n de la presentaci&#xF3;n para la defensa p&#xFA;blica" note="" work="18000" start="20220201T110000Z" end="20220202T120000Z" work-start="20220201T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="53" name="Creaci&#xF3;n de la presentaci&#xF3;n para la defensa p&#xFA;blica" note="" work="18000" start="20220201T100000Z" end="20220202T110000Z" work-start="20220201T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="52" type="FS"/>
         </predecessors>
       </task>
-      <task id="54" name="Creaci&#xF3;n del video para la defensa p&#xFA;blica" note="" work="18000" start="20220202T120000Z" end="20220204T090000Z" work-start="20220203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="54" name="Creaci&#xF3;n del video para la defensa p&#xFA;blica" note="" work="18000" start="20220202T110000Z" end="20220203T120000Z" work-start="20220202T110000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="53" type="FS"/>
         </predecessors>
