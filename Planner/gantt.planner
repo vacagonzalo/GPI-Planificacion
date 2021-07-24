@@ -250,12 +250,13 @@
         </predecessors>
       </task>
     </task>
-    <task id="49" name="Procesos de cierre" note="" work="136800" start="20220121T120000Z" end="20220204T100000Z" work-start="20220124T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="49" name="Procesos de cierre" note="" work="136800" start="20220121T120000Z" end="20220624T090000Z" work-start="20220124T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
         <predecessor id="1" predecessor-id="48" type="FS"/>
       </predecessors>
       <task id="50" name="Pruebas autom&#xE1;ticas de todo el sistema" note="" work="21600" start="20220121T120000Z" end="20220125T100000Z" work-start="20220124T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="51" name="Obtenci&#xF3;n de la figura de m&#xE9;rito del microcontrolador evaluado" note="" work="3600" start="20220125T100000Z" end="20220125T110000Z" work-start="20220125T100000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <constraint type="start-no-earlier-than" time="20220101T000000Z"/>
         <predecessors>
           <predecessor id="1" predecessor-id="50" type="FS"/>
         </predecessors>
@@ -275,17 +276,18 @@
           <predecessor id="1" predecessor-id="53" type="FS"/>
         </predecessors>
       </task>
-      <task id="55" name="Defensa p&#xFA;blica" note="" work="1800" start="20220204T090000Z" end="20220204T093000Z" work-start="20220204T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="55" name="Defensa p&#xFA;blica" note="" work="1800" start="20220624T000000Z" end="20220624T083000Z" work-start="20220624T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <constraint type="start-no-earlier-than" time="20220624T000000Z"/>
         <predecessors>
           <predecessor id="1" predecessor-id="54" type="FS"/>
         </predecessors>
       </task>
-      <task id="56" name="Agradecimiento a todos los involucrados" note="" work="1800" start="20220204T093000Z" end="20220204T100000Z" work-start="20220204T093000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="56" name="Agradecimiento a todos los involucrados" note="" work="1800" start="20220624T083000Z" end="20220624T090000Z" work-start="20220624T083000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="55" type="FS"/>
         </predecessors>
       </task>
-      <task id="57" name="FIN" note="" work="0" start="20220204T100000Z" end="20220204T100000Z" work-start="20220204T100000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+      <task id="57" name="FIN" note="" work="0" start="20220624T090000Z" end="20220624T090000Z" work-start="20220624T090000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="56" type="FS"/>
         </predecessors>
