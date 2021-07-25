@@ -105,6 +105,9 @@
 %\usetikzlibrary{arrows, arrows.meta, calc, positioning, quotes, shapes}
 %\usepackage{array}
 
+\usetikzlibrary{automata,positioning}
+\usetikzlibrary{babel}
+
 
 % Adds space between caption and table
 \usepackage[tableposition=top]{caption}
