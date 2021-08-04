@@ -76,6 +76,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
          Se actualiza el costo del proyecto \newline
          Se completa hasta el punto 9 inclusive                & 13/07/2021 \\ \hline
 3      & Se completa hasta el punto 12 inclusive               & 24/07/2021 \\ \hline
+4      & Se completa hasta el punto 15 inclusive               & 03/08/2021 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -92,7 +93,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Esp. Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un firmware de autocomprobación para el microcontrolador seleccionado y un sistema de inyección de soft-errors, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y USD 500, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Esp. Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un firmware de autocomprobación para el microcontrolador seleccionado y un sistema de inyección de soft-errors, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y USD 50, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,6 +116,9 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
+El proyecto a realizar es una herramienta para evaluar el uso de microcontroladores en misiones espaciales.
+La empresa que lo solicita es INVAP y desea saber si un dispositivo en particular es apto para su empleo espacial.
+
 Las misiones espaciales someten su electrónica a la radiación cósmica.
 Por esta razón, se necesitan componentes especiales que fueron sometidos a un largo y costoso proceso de diseño y calificación.
 Luego, la tecnología utilizada tiene un elevado costo y retraso tecnológico por sobre los productos del mercado masivo.
@@ -127,8 +131,8 @@ El objetivo del proyecto es crear los instrumentos necesarios para realizar la e
 Las herramientas a desarrollar son:
 
 \begin{itemize}
-	\item Inyector por consola de comando (CCI)
-	\item Proceso de dispositivo bajo prueba (DUT)
+	\item Inyector por consola de comando (CCI).
+	\item Proceso de dispositivo bajo prueba (DUT).
 \end{itemize}
 
 La radiación cósmica está compuesta por partículas enérgicamente cargadas.
@@ -145,7 +149,7 @@ Finalmente, se inyectarán los errores por protocolo \emph{JTAG}.
 \begin{figure}[htpb]
 	\centering 
 	\includegraphics[width=\textwidth]{./Figuras/CCIbloques.png}
-	\caption{Diagrama en bloques del Inyector por consola de comando (CCI)}
+	\caption{Diagrama en bloques del Inyector por consola de comando (CCI).}
 	\label{fig:diagInyector}
 \end{figure}
 
@@ -163,8 +167,8 @@ Como se puede ver, este recurso deberá: verificar el estado de los periféricos
 Se espera que el proyecto agregue valor al INVAP de las siguientes maneras:
 
 \begin{itemize}
-	\item Simulando de forma acelerada la duración de una misión espacial
-	\item Permitiendo presupuestar nuevo hardware para las misiones futuras
+	\item Simulando de forma acelerada la duración de una misión espacial.
+	\item Permitiendo presupuestar nuevo hardware para las misiones futuras.
 \end{itemize}
 
 \section{2. Identificación y análisis de los interesados}
@@ -185,7 +189,8 @@ Usuario final & Gerencia de Ingeniería y Producción &\empclientename	& -      
 \end{table}
 
 \begin{itemize}
-	\item Cliente: cumple múltiples roles en el proyecto, valorar el tiempo que invierte.
+	\item Cliente: es además el co-director del proyecto.
+	\item Orientador: cumple el rol de usuario final.
 \end{itemize}
 
 \section{3. Propósito del proyecto}
@@ -194,10 +199,10 @@ Usuario final & Gerencia de Ingeniería y Producción &\empclientename	& -      
 El propósito de este proyecto es proporcionar herramientas para:
 
 \begin{itemize}
-	\item Medir el nivel de susceptibilidad del software que se ejecuta en el DUT a los efectos de la radiación
-	\item Evaluar el origen de dicha susceptibilidad
-	\item Comparar la efectividad de distintas estrategias de mitigación incorporadas al software del DUT para mitigar los efectos de la radiación
-	\item Obtener la figura de mérito (FOM) del DUT
+	\item Medir el nivel de susceptibilidad del software que se ejecuta en el DUT a los efectos de la radiación.
+	\item Evaluar el origen de dicha susceptibilidad.
+	\item Comparar la efectividad de distintas estrategias de mitigación incorporadas al software del DUT para mitigar los efectos de la radiación.
+	\item Obtener la figura de mérito (FOM) del DUT.
 	\item Simular los efectos del ambiente espacial en un microcontrolador.
 	\item Evaluar si un dispositivo del mercado masivo puede ser utilizado en futuras misiones.
 \end{itemize}
@@ -207,15 +212,15 @@ El propósito de este proyecto es proporcionar herramientas para:
 
 El proyecto incluye en su alcance la creación de:
 \begin{itemize}
-	\item Un sistema de inyección de \emph{soft-errors} controlado por consola de comandos
-	\item Un firmware de autocomprobación de periféricos para el microcontrolador seleccionado por INVAP
-	\item La ejecución de ensayos de \emph{soft-errors} con la finalidad de validar el proyecto
+	\item Un sistema de inyección de \emph{soft-errors} controlado por consola de comandos.
+	\item Un firmware de autocomprobación de periféricos para el microcontrolador. seleccionado por INVAP.
+	\item La ejecución de ensayos de \emph{soft-errors} con la finalidad de validar el proyecto.
 \end{itemize}
 
 El presente proyecto no incluye:
 
 \begin{itemize}
-	\item El diseño de ensayos de \emph{soft-errors}
+	\item El diseño de ensayos de \emph{soft-errors}.
 \end{itemize}
 
 
@@ -225,7 +230,7 @@ El presente proyecto no incluye:
 Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Se tendrá acceso irrestricto al microcontrolador propuesto por INVAP antes del día 01/01/2022
+	\item Se tendrá acceso irrestricto al microcontrolador propuesto por INVAP antes del día 01/01/2022.
 \end{itemize}
 
 
@@ -238,7 +243,7 @@ Para comprender los requerimientos del proyecto, se enumeran las siguientes defi
 	\item Definiciones:
 	\begin{itemize}
 		\item Single event effect: efecto de una partícula enérgicamente cargada sobre un microcontrolador.
-		\item Single event funtional interrupt: interrupción causada por el impacto de una sola partícula que conduce a una no funcionalidad temporal.
+		\item Single event functional interrupt: interrupción causada por el impacto de una sola partícula que conduce a una no funcionalidad temporal.
 		\item Single event upset: pulso transitorio en la lógica o circuitos de apoyo. Son \emph{soft-errors} no destructivos.
 		\item Soft-error: tipo de error en donde una señal o dato es incorrecto.
 	\end{itemize}
@@ -271,43 +276,43 @@ A continuación se enumeran los requerimientos del proyecto según lo especifica
 	\begin{enumerate}
 		\item Con usuario:
 		\begin{itemize}
-			\item Deberá representar todos los caracteres de ISO Std. 10646
-			\item Conformará con las secuencias de escape de ISO Std. 6429
-			\item Usará el castellano como idioma conforme a la Real Academia Española
-			\item Se aceptarán barbarismos que conformen la interfaz con los sistemas UNIX
-			\item No deberá producir destellos ni cambios bruscos en su intensidad lumínica
-			\item No deberá producir sonidos
+			\item Deberá representar todos los caracteres de ISO Std. 10646.
+			\item Conformará con las secuencias de escape de ISO Std. 6429.
+			\item Usará el castellano como idioma conforme a la Real Academia Española.
+			\item Se aceptarán barbarismos que conformen la interfaz con los sistemas UNIX.
+			\item No deberá producir destellos ni cambios bruscos en su intensidad lumínica.
+			\item No deberá producir sonidos.
 			\item Títulos:
 			\begin{itemize}
-				\item Los títulos deberán ser cortos
-				\item Los títulos deberán estar correctamente capitalizados
-				\item Los títulos deberán ser únicos
+				\item Los títulos deberán tener una longitud máxima de 30 caracteres.
+				\item Los títulos deberán estar correctamente capitalizados.
+				\item Los títulos deberán ser únicos.
 			\end{itemize}
 			\item Comandos:
 			\begin{itemize}
-				\item El sistema se iniciará con el comando ``python sise.py''
-				\item El sistema imprimirá en pantalla un manual de ayuda con el comando ``python sise.py --help''
-				\item Se podrá exportar la configuración del último ensayo realizado con el comando ``python sise.py --export=Ruta''
-				\item Se podrá importar la configuración de un ensayo a realizar con el comando ``python sise.py --import=Ruta/Archivo''
+				\item El sistema se iniciará con el comando ``sise''.
+				\item El sistema imprimirá en pantalla un manual de ayuda con el comando ``sise --help''.
+				\item Se podrá exportar la configuración del último ensayo realizado con el comando ``sise --export=Ruta''.
+				\item Se podrá importar la configuración de un ensayo a realizar con el comando ``sise --import=Ruta/Archivo''.
 			\end{itemize}
 			\item Menú:
 			\begin{itemize}
-				\item El sistema de menú tendrá una arquitectura de árbol
-				\item La navegación entre los nodos del menú será consistente en todo el árbol
-				\item Se indicará en todo momento el nodo actual y todos los nodos que lleven a la raíz del árbol
+				\item El sistema de menú tendrá una arquitectura de árbol.
+				\item La navegación entre los nodos del menú será consistente en todo el árbol.
+				\item Se indicará en todo momento el nodo actual y todos los nodos que lleven a la raíz del árbol.
 			\end{itemize}
 		\end{itemize}
 		\item Con DUT:
 		\begin{itemize}
-			\item La comunicación con UART será en 9600 baudios, 8 bits de datos, 1 bit de parada y 0 bits de paridad
-			\item La comunicación con el debugger se conformará con la configuración recomendada por el fabricante
+			\item La comunicación con UART será en 9600 baudios, 8 bits de datos, 1 bit de parada y 0 bits de paridad.
+			\item La comunicación con el debugger se conformará con la configuración recomendada por el fabricante.
 		\end{itemize}
 	\end{enumerate}
 	\item Proceso de DUT:
 	\begin{itemize}
-		\item La comunicación con el debugger estará disponible durante todo el flujo de la secuencia
-		\item Durante el flujo de la secuencia, la UART solo podrá transmitir información
-		\item En el periodo entre secuencias, la UART podrá recibir y transmitir información
+		\item La comunicación con el debugger estará disponible durante todo el flujo de la secuencia.
+		\item Durante el flujo de la secuencia, la UART solo podrá transmitir información.
+		\item En el periodo entre secuencias, la UART podrá recibir y transmitir información.
 	\end{itemize}
 \end{enumerate}
 
@@ -317,37 +322,37 @@ A continuación se enumeran los requerimientos del proyecto según lo especifica
 \begin{enumerate}
 	\item CCI:
 	\begin{itemize}
-		\item Detendrá la secuencia de duración $ T $ del DUT en un momento $ t $ definido como \\ $ t \, \epsilon \, \rm I\!R^+ \wedge t \, < T$
-		\item Con la secuencia del DUT detenida, inyectará un SEFI-SEU que invertirá el valor de un bit de un registro interno
-		\item La descripción del ensayo definirá el momento $ t $ de inyección de SEFI-SEU durante la secuencia de duración $ T $ y será un múltiplo de $\Delta t$ definido como $ \Delta t=T/N \, \forall \, N \epsilon \, \rm I\!N $
-		\item La descripción del ensayo definirá la cantidad $ M $ de registros involucrados en la prueba
-		\item La cantidad de secuencias $ L $ a ejecutar quedará definida como $ L = N \times M $
-		\item Se ejecutará una secuencia de control sin inyección de SEFI-SEU antes de correr las $ L $ secuencias
-		\item Por cada ejecución de una secuencia se obtendrá un valor de salida $ S $ del DUT
-		\item Cada valor de salida $ S $ será persistido para su análisis
-		\item Cada valor de salida $ S $ quedará asociado a su correspondiente secuencia con su inyección de SEFI-SEU y momento $ t $
-		\item Se generará un archivo de resultados llamado\\ ``resultados-AAAAMMDDHHmm.res'', siendo AAAA el año del ensayo, MM el mes, DD el día, HH la hora y mm los minutos
-		\item El archivo de resultados acumulará los SEFI y SEU de cada registro del DUT
-		\item El archivo de resultados acumulará los SEU de cada periférico del DUT
+		\item Detendrá la secuencia de duración $ T $ del DUT en un momento $ t $ definido como \\ $ t \, \epsilon \, \rm I\!R^+ \wedge t \, < T$.
+		\item Con la secuencia del DUT detenida, inyectará un SEFI-SEU que invertirá el valor de un bit de un registro interno.
+		\item La descripción del ensayo definirá el momento $ t $ de inyección de SEFI-SEU durante la secuencia de duración $ T $ y será un múltiplo de $\Delta t$ definido como $ \Delta t=T/N \, \forall \, N \epsilon \, \rm I\!N $.
+		\item La descripción del ensayo definirá la cantidad $ M $ de registros involucrados en la prueba.
+		\item La cantidad de secuencias $ L $ a ejecutar quedará definida como $ L = N \times M $.
+		\item Se ejecutará una secuencia de control sin inyección de SEFI-SEU antes de correr las $ L $ secuencias.
+		\item Por cada ejecución de una secuencia se obtendrá un valor de salida $ S $ del DUT.
+		\item Cada valor de salida $ S $ será persistido para su análisis.
+		\item Cada valor de salida $ S $ quedará asociado a su correspondiente secuencia con su inyección de SEFI-SEU y momento $ t $.
+		\item Se generará un archivo de resultados llamado\\ ``resultados-AAAAMMDDHHmm.res'', siendo AAAA el año del ensayo, MM el mes, DD el día, HH la hora y mm los minutos.
+		\item El archivo de resultados acumulará los SEFI y SEU de cada registro del DUT.
+		\item El archivo de resultados acumulará los SEU de cada periférico del DUT.
 		\item El archivo de resultados indicará el FOM del registro definido como: \\
-		$ FOM_{REG} = (1 - \frac{SEU}{SEFI}) $
+		$ FOM_{REG} = (1 - \frac{SEU}{SEFI}) $.
 		\item El archivo de resultados indicará el FOM del DUT definido como: \\
-		$ FOM_{DUT} = \frac{1}{M} \times \sum_{i = 1}^{i = M}FOM_{i} $ siendo $ i $ el número que representa un registro del DUT
-		\item Se generará un archivo de histogramas llamado ``histogramas-AAAAMMDDmm.his'' siendo AAAA el año del ensayo, MM el mes, DD el día, HH la hora y mm los minutos
-		\item El archivo de histogramas tendrá una tabla que indique la frecuencia de fallos como función de los SEFIs por registro del DUT
-		\item El archivo de histogramas tendrá una tabla que indique la frecuencia de fallos como función de los SEFIs por periférico del DUT
+		$ FOM_{DUT} = \frac{1}{M} \times \sum_{i = 1}^{i = M}FOM_{i} $ siendo $ i $ el número que representa un registro del DUT.
+		\item Se generará un archivo de histogramas llamado ``histogramas-AAAAMMDDmm.his'' siendo AAAA el año del ensayo, MM el mes, DD el día, HH la hora y mm los minutos.
+		\item El archivo de histogramas tendrá una tabla que indique la frecuencia de fallos como función de los SEFIs por registro del DUT.
+		\item El archivo de histogramas tendrá una tabla que indique la frecuencia de fallos como función de los SEFIs por periférico del DUT.
 	\end{itemize}
 	\item Proceso de DUT:
 	\begin{itemize}
-		\item Deberá correr una secuencia de autoevaluación cuya ejecución durará un tiempo $ T $
-		\item Deberá producir una salida $ S $ que podrá ser un estado o una secuencia de estados
-		\item Este proceso podrá tener una entrada $ E $
-		\item Deberá evaluar el estado de los periféricos del DUT
-		\item Tendrá una función de evaluación para cada uno de los periféricos del DUT
-		\item Se podrá definir por la entrada $ E $ si se desea excluir uno o más periféricos en la secuencia
-		\item Manejará una interrupción del flujo normal de la secuencia y generará una salida $ S $ indicando la excepción, por ejemplo: interrupción por \emph{watchdog}
-		\item La salida $ S $ utilizará la UART del DUT para ser transmitida
-		\item La entrada $ E $ utilizará la UART del DUT para ser recibida
+		\item Deberá correr una secuencia de autoevaluación cuya ejecución durará un tiempo $ T $.
+		\item Deberá producir una salida $ S $ que podrá ser un estado o una secuencia de estados.
+		\item Este proceso podrá tener una entrada $ E $.
+		\item Deberá evaluar el estado de los periféricos del DUT.
+		\item Tendrá una función de evaluación para cada uno de los periféricos del DUT.
+		\item Se podrá definir por la entrada $ E $ si se desea excluir uno o más periféricos en la secuencia.
+		\item Manejará una interrupción del flujo normal de la secuencia y generará una salida $ S $ indicando la excepción, por ejemplo: interrupción por \emph{watchdog}.
+		\item La salida $ S $ utilizará la UART del DUT para ser transmitida.
+		\item La entrada $ E $ utilizará la UART del DUT para ser recibida.
 	\end{itemize}
 \end{enumerate}
 
@@ -355,17 +360,17 @@ A continuación se enumeran los requerimientos del proyecto según lo especifica
 \label{sub:rendimiento}
 
 \begin{itemize}
-	\item La inyección de SEFI-SEU podrá tener un desvío en su momento $ t $ de 10 ms
-	\item El desvío tolerado de $ t $ deberá representar como máximo el 1\% de la duración $ T $ de la secuencia del DUT
-	\item Aceptará un $ \Delta t $ que como mínimo represente el 5\% de la duración $ T $ de la secuencia del DUT
+	\item La inyección de SEFI-SEU podrá tener un desvío en su momento $ t $ de 10 ms.
+	\item El desvío tolerado de $ t $ deberá representar como máximo el 1\% de la duración $ T $ de la secuencia del DUT.
+	\item Aceptará un $ \Delta t $ que como mínimo represente el 5\% de la duración $ T $ de la secuencia del DUT.
 \end{itemize}
 
 \subsection{Restricciones de diseño}
 \label{sub:restriccionesDiseño}
 
 \begin{itemize}
-	\item Se utilizará como dispositivo principal el microcontrolador seleccionado por INVAP
-	\item Se utilizará un sistema operativo de tiempo real para diseñar el Proceso de DUT
+	\item Se utilizará como dispositivo principal el microcontrolador seleccionado por INVAP.
+	\item Se utilizará un sistema operativo de tiempo real para diseñar el Proceso de DUT.
 \end{itemize}
 
 \subsection{Atributos del sistema}
@@ -374,7 +379,7 @@ A continuación se enumeran los requerimientos del proyecto según lo especifica
 \begin{enumerate}
 	\item Mantenibilidad:
 	\begin{itemize}
-		\item El Proceso de DUT se desarrollará con un modelo de capas
+		\item El Proceso de DUT se desarrollará con un modelo de capas.
 	\end{itemize}
 \end{enumerate}
 
@@ -413,9 +418,9 @@ A continuación se enumeran las dos historias de usuario:
 Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Código fuente en el repositorio con control de versiones \emph{Gitlab} de INVAP
-	\item Documentación del código con \emph{Doxygen}
-	\item Documentación de las actividades semanales
+	\item Código fuente en el repositorio con control de versiones \emph{Gitlab} de INVAP.
+	\item Documentación del código con \emph{Doxygen}.
+	\item Documentación de las actividades semanales.
 \end{itemize}
 
 
@@ -425,69 +430,69 @@ Los entregables del proyecto son:
 \begin{enumerate}
 \item Planificación
 	\begin{enumerate}
-	\item Investigación de la problemática (10 hs)
-	\item Relevamiento de las necesidades del cliente (15 hs)
-	\item Exploración de las posibles tecnologías a emplear (20 hs)
-	\item Investigación sobre el nivel de acceso posible al microcontrolador (5 hs)
-	\item Creación del documento de especificaciones de requerimientos de software (15 hs)
-	\item Elección final de las tecnologías e informe de justificación (15 hs)
-	\item Confección de un documento de planificación del proyecto (20 hs)
-	\item Reunión de control y aceptación de la documentación (1 hs)
-	\item Creación del plan de pruebas y validación (20 hs)
-	\item Reunión final de la planificación (1 hs)
+	\item Investigación de la problemática (10 hs).
+	\item Relevamiento de las necesidades del cliente (15 hs).
+	\item Exploración de las posibles tecnologías a emplear (20 hs).
+	\item Investigación sobre el nivel de acceso posible al microcontrolador (5 hs).
+	\item Creación del documento de especificaciones de requerimientos de software (15 hs).
+	\item Elección final de las tecnologías e informe de justificación (15 hs).
+	\item Confección de un documento de planificación del proyecto (20 hs).
+	\item Reunión de control y aceptación de la documentación (1 hs).
+	\item Creación del plan de pruebas y validación (20 hs).
+	\item Reunión final de la planificación (1 hs).
 	\end{enumerate}
 \item Logística e infraestructura
 	\begin{enumerate}
-	\item Establecimiento de un canal cifrado con el departamento de IT de INVAP (2 hs)
-	\item Obtención de credenciales para acceder a la infraestructura de INVAP (2 hs)
-	\item Obtención de credenciales para acceder al sistema de control de versiones de INVAP (2 hs)
-	\item Configuración del entorno de trabajo conforme a los lineamientos de INVAP (3 hs)
-	\item Obtención del hardware necesario para la realización del proyecto (10 hs)
+	\item Establecimiento de un canal cifrado con el departamento de IT de INVAP (2 hs).
+	\item Obtención de credenciales para acceder a la infraestructura de INVAP (2 hs).
+	\item Obtención de credenciales para acceder al sistema de control de versiones de INVAP (2 hs).
+	\item Configuración del entorno de trabajo conforme a los lineamientos de INVAP (3 hs).
+	\item Obtención del hardware necesario para la realización del proyecto (10 hs).
 	\end{enumerate}
 \item Inyector por consola de comando
 	\begin{enumerate}
-	\item Integración del servidor OCD (10 hs)
-	\item Creacion de los archivos de configuración para el servidor OCD (30 hs)
-	\item Pruebas de integración servidor OCD-Dispositivo bajo prueba (10 hs)
-	\item Pruebas de rendimiento del servidor OCD (10 hs)
-	\item Determinación de la media y desvío del error temporal de SEFI-SEU (5 hs)
-	\item Creación de API para el servidor OCD (20 hs)
-	\item Pruebas de aceptación de API para el servidor OCD (10 hs)
-	\item Determinación y comparación de la media y desvío del error temporal de SEFI-SEU (5 hs)
-	\item Servicio de interfaz serie para el dispositivo bajo prueba (20 hs)
-	\item Pruebas de rendimiento de la interfaz serie (5 hs)
-	\item Servicio de persistencia de datos (20 hs)
-	\item Pruebas de aceptación del servicio de persistencia de datos (5 hs)
-	\item Codificación del controlador de ensayos (40 hs)
-	\item Pruebas del controlador de ensayos (10 hs)
-	\item Validación manual de los informes generados (10 hs)
-	\item Creación de la consola de usuario (15 hs)
-	\item Creación de pruebas automáticas para la consola de usuario (10 hs)
-	\item Validación de la consola de usuario por parte del cliente (5 hs)
+	\item Integración del servidor OCD (10 hs).
+	\item Creacion de los archivos de configuración para el servidor OCD (30 hs).
+	\item Pruebas de integración servidor OCD-Dispositivo bajo prueba (10 hs).
+	\item Pruebas de rendimiento del servidor OCD (10 hs).
+	\item Determinación de la media y desvío del error temporal de SEFI-SEU (5 hs).
+	\item Creación de API para el servidor OCD (20 hs).
+	\item Pruebas de aceptación de API para el servidor OCD (10 hs).
+	\item Determinación y comparación de la media y desvío del error temporal de SEFI-SEU (5 hs).
+	\item Servicio de interfaz serie para el dispositivo bajo prueba (20 hs).
+	\item Pruebas de rendimiento de la interfaz serie (5 hs).
+	\item Servicio de persistencia de datos (20 hs).
+	\item Pruebas de aceptación del servicio de persistencia de datos (5 hs).
+	\item Codificación del controlador de ensayos (40 hs).
+	\item Pruebas del controlador de ensayos (10 hs).
+	\item Validación manual de los informes generados (10 hs).
+	\item Creación de la consola de usuario (15 hs).
+	\item Creación de pruebas automáticas para la consola de usuario (10 hs).
+	\item Validación de la consola de usuario por parte del cliente (5 hs).
 	\end{enumerate}
 \item Proceso en DUT
 	\begin{enumerate}
-		\item Diseño de la estrategia de autovalidación del estado general del DUT (25 hs)
-		\item Diseño de la estrategia de la validación del estado de cada periférico (30 hs)
-		\item Análisis de los posibles SEFI-SEU que alteren la secuencia de autovalidación general (25 hs)
-		\item Diseño de estrategias de manejo de excepciones (25 hs)
-		\item Reunión de control y aceptación del diseño (1 hs)
-		\item Codificación del firmware (50 hs)
-		\item Pruebas de manejo de excepciones (25 hs)
+		\item Diseño de la estrategia de autovalidación del estado general del DUT (25 hs).
+		\item Diseño de la estrategia de la validación del estado de cada periférico (30 hs).
+		\item Análisis de los posibles SEFI-SEU que alteren la secuencia de autovalidación general (25 hs).
+		\item Diseño de estrategias de manejo de excepciones (25 hs).
+		\item Reunión de control y aceptación del diseño (1 hs).
+		\item Codificación del firmware (50 hs).
+		\item Pruebas de manejo de excepciones (25 hs).
 	\end{enumerate}
 \item Procesos de cierre
 	\begin{enumerate}
-		\item Pruebas automáticas de todo el sistema (6 hs)
-		\item Obtención de la figura de mérito del microcontrolador evaluado (1 hs)
-		\item Creación de la memoria del trabajo terminado (20 hs)
-		\item Creación de la presentación para la defensa pública (5 hs)
-		\item Creación del video para la defensa pública (5 hs)
-		\item Defensa pública (0,5 hs)
-		\item Agradecimiento a todos los involucrados (0,5 hs)
+		\item Pruebas automáticas de todo el sistema (6 hs).
+		\item Obtención de la figura de mérito del microcontrolador evaluado (1 hs).
+		\item Creación de la memoria del trabajo terminado (20 hs).
+		\item Creación de la presentación para la defensa pública (5 hs).
+		\item Creación del video para la defensa pública (5 hs).
+		\item Defensa pública (0,5 hs).
+		\item Agradecimiento a todos los involucrados (0,5 hs).
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: (600 hs)
+Cantidad total de horas: (600 hs).
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
@@ -890,8 +895,8 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
  Dispositivo bajo prueba (DUT)&
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{USD 500} &
-  \multicolumn{1}{c|}{USD 500} \\ \hline
+  \multicolumn{1}{c|}{USD 50} &
+  \multicolumn{1}{c|}{USD 50} \\ \hline
  Honorarios del ingeniero &
   \multicolumn{1}{c|}{1} &
   \multicolumn{1}{c|}{USD 0} &
@@ -905,7 +910,7 @@ Descripción &
    &
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{USD 500} \\ \hline
+  \multicolumn{1}{c|}{USD 50} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -937,29 +942,45 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
+Riesgo 1: Demora en la adquisición del DUT.
 \begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
+	\item Severidad (S): 5.\\
+	Las tareas asociadas al proceso en DUT están en el camino crítico.
+	\item Probabilidad de ocurrencia (O): 5.\\
+	El proveedor declara una demora estimada de 5 meses de entrega. No es posible saber la exactitud de la estimación.
 \end{itemize}   
 
-Riesgo 2:
+Riesgo 2: Destrucción del DUT durante un ensayo.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
+	\item Severidad (S): 10. \\
+	Se demorarían 5 meses en reponer el DUT.
+	\item Ocurrencia (O): 2.
+	No se espera someter al DUT a ensayos potencialmente destructivos.
 \end{itemize}
 
-Riesgo 3:
+Riesgo 3: Avería del ordenador de desarrollo.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
+	\item Severidad (S): 3. \\
+	El código generado se mantiene en repositorios con control de versiones.
+	\item Ocurrencia (O): 2. \\
+	El ordenador de desarrollo es robusto, se encuentra en una posición fija y tiene elementos de protección eléctrica.
 \end{itemize}
 
+Riesgo 4: Disminución de las horas disponibles.
+\begin{itemize}
+	\item Severidad (S): 6. \\
+	El proyecto fue planificado con 20 horas de trabajo semanal.
+	\item Ocurrencia (O): 2. \\
+	Las horas de trabajo fueron ubicadas en los días no laborables del tesista.
+\end{itemize}
+
+Riesgo 5: Imposibilidad económica para continuar el posgrado.
+\begin{itemize}
+	\item Severidad (S): 10. \\
+	La consecuencia sería el fin del proyecto.
+	\item Ocurrencia (O): 1. \\
+	Se cuenta con el suficiente ahorro para afrontar los costos.
+\end{itemize}
 
 b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 
@@ -968,71 +989,372 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+Riesgo                                             & S & O & RPN & S* & O* & RPN* \\ \hline
+Demora en la adquisición del DUT                   & 5 & 5 & 25  &3   & 5  & 15   \\ \hline
+Destrucción del DUT durante un ensayo              &10 & 2 & 20  &10  & 1  & 10   \\ \hline
+Avería del ordenador de desarrollo                 & 3 & 2 & 6   &    &    &      \\ \hline
+Disminución de las horas disponibles               & 6 & 2 & 12  &    &    &      \\ \hline
+Imposibilidad económica para continuar el posgrado &10 & 1 & 10  &    &    &      \\ \hline
 \end{tabularx}%
 \end{table}
 
 Criterio adoptado: 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 19.
 
 Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  - Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-  - Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
+Riesgo 1: uso de un modelo alternativo al DUT. \\
+  - Severidad (S): 3. El modelo alternativo permite avanzar con parte del proyecto mientras se espera el arribo del DUT. \\
+  - Probabilidad de ocurrencia (O): 5. No hay modificación en la probabilidad de ocurrencia.
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-
-\end{consigna}
-
+Riesgo 2: aprobación del plan de ensayos por parte del director y co-director. \\
+  - Severidad (S): 10. No hay modificación en la severidad. \\
+  - Probabilidad de ocurrencia (O): 5. El apoyo del director y co-director incrementan las posibilidades de detectar una acción potencialmente destructiva.
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Para cada uno de los requerimientos del proyecto indique:
 \begin{itemize} 
-\item Req \#1: copiar acá el requerimiento.
-
+\item Req \#1: Deberá representar todos los caracteres de ISO Std. 10646.
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar 
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar  
+	\item Verificación: construcción de una pantalla de prueba de caracteres.
+	\item Validación: aceptación de la pantalla de prueba por parte del cliente.  
+\end{itemize}
+
+\item Req \#2: Conformará con las secuencias de escape de ISO Std. 6429.
+\begin{itemize}
+    \item Verificación: construcción de una pantalla de prueba de secuencias de escape.
+    \item Validación: aceptación de la pantalla de prueba por parte del cliente.
+\end{itemize}
+
+\item Req \#3: Usará el castellano como idioma conforme a la Real Academia Española.
+\begin{itemize}
+    \item Verificación: los mensajes a mostrar en pantalla serán contruidos a partir de un ``template'' que será analizado por un corrector ortográfico.
+    \item Validación: aceptación del idioma por parte del cliente.
+\end{itemize}
+
+\item Req \#4: Se aceptarán barbarismos que conformen la interfaz con los sistemas UNIX.
+\begin{itemize}
+    \item Verificación: se usarán los comandos en inglés que se utilizan en los programas GNU.
+    \item Validación: aceptación de los comandos por parte del cliente.
+\end{itemize}
+
+\item Req \#5: No deberá producir destellos ni cambios bruscos en su intensidad lumínica
+\begin{itemize}
+    \item Verificación: no se utilizarán las secuencias de escape que generen destellos en la terminal.
+    \item Validación: se realizarán las pruebas de funcionamiento del sistema en un cuarto con total oscuridad y se reportará cualquier síntoma de fotofobia.
+\end{itemize}
+
+\item Req \#6: No deberá producir sonidos.
+\begin{itemize}
+    \item Verificación: no se utilizarán las secuencias de escape que generen sonidos en la terminal.
+    \item Validación: se realizarán las pruebas de funcionamiento del sistema con el control de volumen al máximo y se reportará cualquier sonido emitido.
+\end{itemize}
+
+\item Req \#7: Los títulos deberán tener una longitud máxima de 30 caracteres.
+\begin{itemize}
+    \item Verificación: ningún título superará los 30 caracteres.
+    \item Validación: aceptación de los títulos por parte del cliente.
+\end{itemize}
+
+\item Req \#8: Los títulos deberán estar correctamente capitalizados.
+\begin{itemize}
+    \item Verificación: se generará una biblioteca que imponga el formato de los títulos.
+    \item Validación: aceptación de los títulos por parte del cliente.
+\end{itemize}
+
+\item Req \#9: Los títulos deberán ser únicos.
+\begin{itemize}
+    \item Verificación: los títulos se cargarán en memoria en una colección del tipo ``set''.
+    \item Validación: aceptación de los títulos por parte del cliente.
+\end{itemize}
+
+\item Req \#10: El sistema se iniciará con el comando ``sise''.
+\begin{itemize}
+    \item Verificación: se utilizará ``setuptools\_entry\_points'' para crear un comando en el ``path'' del ambiente.
+    \item Validación: se creará una maqueta que ejecutará el cliente en su ambiente de produción.
+\end{itemize}
+
+\item Req \#11: El sistema imprimirá en pantalla un manual de ayuda con el comando ``sise --help''.
+\begin{itemize}
+    \item Verificación: se utilizará ``setuptools\_entry\_points'' para crear un comando ``--help'' como argumento de ``sise''.
+    \item Validación: se creará una maqueta que ejecutará el cliente en su ambiente de producción.
+\end{itemize}
+
+\item Req \#12: Se podrá exportar la configuración del último ensayo realizado con el comando ``sise --export=Ruta''.
+\begin{itemize}
+    \item Verificación: se utilizará ``setuptools\_entry\_points'' para crear un comando \\``--export=Ruta'' como argumento de ``sise''.
+    \item Validación: se creará una maqueta que ejecutará el cliente en su ambiente de producción.
+\end{itemize}
+
+\item Req \#13: Se podrá importar la configuración de un ensayo a realizar con el comando ``sise --import=Ruta/Archivo''.
+\begin{itemize}
+    \item Verificación: se utilizará ``setuptools\_entry\_points'' para crear un comando \\``--import=Ruta/Archivo'' como argumento de ``sise''.
+    \item Validación: se creará una maqueta que ejecutará el cliente en su ambiente de producción.
+\end{itemize}
+
+\item Req \#14: El sistema de menú tendrá una arquitectura de árbol.
+\begin{itemize}
+    \item Verificación: se recorrerá el menú y se intentará ingresar a una rama inaccesible.
+    \item Validación: aceptación del menú por parte del cliente.
+\end{itemize}
+
+\item Req \#15: La navegación entre los nodos del menú será consistente en todo el árbol.
+\begin{itemize}
+    \item Verificación: se recorrerá el menú y se reportará cualquier inconsistencia encontrada.
+    \item Validación: aceptación del menú por parte del cliente.
+\end{itemize}
+
+\item Req \#16: Se indicará en todo momento el nodo actual y todos los nodos que lleven a la raíz del árbol.
+\begin{itemize}
+    \item Verificación: se recorrerá el menú y se reportará cualquier nodo que rompa la cadena de información.
+    \item Validación: aceptación del menú por parte del cliente.
+\end{itemize}
+
+\item Req \#17: La comunicación con UART será en 9600 baudios, 8 bits de datos, 1 bit de parada y 0 bits de paridad.
+\begin{itemize}
+    \item Verificación: se utilizará una terminal serie con la configuración del requerimiento para verificar la comunicación.
+    \item Validación: se utilizará el DUT para validar la comunicación.
+\end{itemize}
+
+\item Req \#18: La comunicación con el debugger se conformará con la configuración recomendada por el fabricante.
+\begin{itemize}
+    \item Verificación: Se generará un guión para probar la comunicación con el debugger.
+    \item Validación: Se realizará una prueba que modifique el registro PC del DUT y deberá modificar el normal funcionamiento de un programa de prueba.
+\end{itemize}
+
+\item Req \#18: La comunicación con el debugger estará disponible durante todo el flujo de la secuencia.
+\begin{itemize}
+    \item Verificación: se generará un guión que verifique la conexión del servidor OCD con el debugger durante toda la secuencia del DUT.
+    \item Validación: se realizará una prueba continua de 24 horas de duración y no se deberá perder la comunicación
+\end{itemize}
+
+\item Req \#19: Durante el flujo de la secuencia, la UART solo podrá transmitir información.
+\begin{itemize}
+    \item Verificación: se creará un script que intentará comunicarse con el DUT durante la secuencia.
+    \item Validación: análisis con \emph{wireshark} para validar que no existe comunicación serie.
+\end{itemize}
+
+\item Req \#19: En el periodo entre secuencias, la UART podrá recibir y transmitir información.
+\begin{itemize}
+    \item Verificación: se creará un script que intentará comunicarse con el DUT entre secuencias.
+    \item Validación: análisis con \emph{wireshark} para validar la comunicación serie.
+\end{itemize}
+
+\item Req \#20: Detendrá la secuencia de duración $ T $ del DUT en un momento $ t $ definido como \\ $ t \, \epsilon \, \rm I\!R^+ \wedge t \, < T$.
+\begin{itemize}
+    \item Verificación: se contará la cantidad de instrucciones desde el inicio de la secuencia hasta el momento $ t $ y se calculará el tiempo transcurrido.
+    \item Validación: se generará una secuencia de duración $ T $ que encienda un LED al finalizar. El instante $ t $ deberá suceder antes del encendido del testigo.
+\end{itemize}
+
+\item Req \#21: Con la secuencia del DUT detenida, inyectará un SEFI-SEU que invertirá el valor de un bit de un registro interno.
+\begin{itemize}
+    \item Verificación: se utilizará el módulo \emph{Coresight} de la arquitectura ARM para verificar la inyección del SEFI-SEU.
+    \item Validación: se modificará el valor del registro \emph{program counter} y se deberá observar un cambio en el comportamiento del DUT.
+\end{itemize}
+
+\item Req \#22: La descripción del ensayo definirá el momento $ t $ de inyección de SEFI-SEU durante la secuencia de duración $ T $ y será un múltiplo de $\Delta t$ definido como $ \Delta t=T/N \, \forall \, N \epsilon \, \rm I\!N $
+\begin{itemize}
+    \item Verificación: se contará la cantidad de instrucciones entre inyecciones de SEFI-SEU y el número deberá ser constante.
+    \item Validación: se deberán producir $ N $ inyecciones de SEFI-SEU.
+\end{itemize}
+
+\item Req \#23: La descripción del ensayo definirá la cantidad $ M $ de registros involucrados en la prueba.
+\begin{itemize}
+    \item Verificación: se comparará la cantidad de registros incluidos en la descripción del ensayo con la cantidad de registros especificados en las hojas de datos.
+    \item Validación: se comparará los registros incluidos en el ensayo con la especificación de la arquitectura ARM.
+\end{itemize}
+
+\item Req \#24: La cantidad de secuencias $ L $ a ejecutar quedará definida como $ L = N \times M $.
+\begin{itemize}
+    \item Verificación: Se contará la cantidad de mensajes recibidos y deberá ser igual a $ L $.
+    \item Validación: La cantidad de muestras que alimentan al histograma deberá ser $ L $.
+\end{itemize}
+
+\item Req \#25: Se ejecutará una secuencia de control sin inyección de SEFI-SEU antes de correr las $ L $ secuencias.
+\begin{itemize}
+    \item Verificación: El mensaje recibido luego de la ejecución de la primera secuencia no tendrá errores.
+    \item Validación: La primera secuencia tendrá una duración $ T $.
+\end{itemize}
+
+\item Req \#25: Por cada ejecución de una secuencia se obtendrá un valor de salida $ S $ del DUT.
+\begin{itemize}
+    \item Verificación: Se deberá obtener una cantidad $ L $ de salidas $ S $.
+    \item Validación: Los datos persistidos deberán tener una cantidad $ L $ de salidas $ S $.
+\end{itemize}
+
+\item Req \#26: Cada valor de salida $ S $ será persistido para su análisis.
+\begin{itemize}
+    \item Verificación: Se deberá obtener una cantidad $ L $ de salidas $ S $.
+    \item Validación: Los datos persistidos deberán tener una cantidad $ L $ de salidas $ S $.
+\end{itemize}
+
+\item Req \#27: Cada valor de salida $ S $ quedará asociado a su correspondiente secuencia con su inyección de SEFI-SEU y momento $ t $.
+\begin{itemize}
+    \item Verificación: se observará la tabla de datos creada y no podrán quedar celdas vacías.
+    \item Validación: Los datos persistidos deberán tener una cantidad $ L $ de salidas $ S $.
+\end{itemize}
+
+\item Req \#28: Se generará un archivo de resultados llamado\\ ``resultados-AAAAMMDDHHmm.res'', siendo AAAA el año del ensayo, MM el mes, DD el día, HH la hora y mm los minutos.
+\begin{itemize}
+    \item Verificación: se generará archivos y se comparará los nombres obtenidos con el reloj del sistema.
+    \item Validación: se observará que los archivos tengan el patrón especificado.
+\end{itemize}
+
+\item Req \#29: El archivo de resultados acumulará los SEFI y SEU de cada registro del DUT.
+\begin{itemize}
+    \item Verificación: se utilizará \emph{wireshark} para contar las salidas $ S $ y deberá coincidir con la acumulación de SEFI-SEU.
+    \item Validación: se repetirá el ensayo múltiples veces y los resultados acumulados deberan coincidir.
+\end{itemize}
+
+\item Req \#30: El archivo de resultados acumulará los SEU de cada periférico del DUT.
+\begin{itemize}
+    \item Verificación: la cantidad de SEFI-SEU obtenidos por registró deberá coincidir con los SEFI-SEU obtenidos por periféricos.
+    \item Validación: la cantidad de SEFI-SEU obtenidos por registró deberá coincidir con los SEFI-SEU obtenidos por periféricos.
+\end{itemize}
+
+\item Req \#31: El archivo de resultados indicará el FOM del registro definido como: \\ $ FOM_{REG} = (1 - \frac{SEU}{SEFI}) $.
+\begin{itemize}
+    \item Verificación: se realizará una verificación automática con pytest del cálculo de FOM.
+    \item Validación: el FOM obtenido será un número entre 0 y 1.
+\end{itemize}
+
+\item Req \#32: El archivo de resultados indicará el FOM del DUT definido como: \\ $ FOM_{DUT} = \frac{1}{M} \times \sum_{i = 1}^{i = M}FOM_{i} $ siendo $ i $ el número que representa un registro del DUT.
+\begin{itemize}
+    \item Verificación: se realizará una verificación automática con pytest del cálculo de FOM.
+    \item Validación: el FOM obtenido será un número entre 0 y 1.
+\end{itemize}
+
+\item Req \#33: Se generará un archivo de histogramas llamado\\ ``histogramas-AAAAMMDDmm.his'' siendo AAAA el año del ensayo, MM el mes, DD el día, HH la hora y mm los minutos.
+\begin{itemize}
+    \item Verificación: se generará archivos y se comparará los nombres obtenidos con el reloj del sistema.
+    \item Validación: se observará que los archivos tengan el patrón especificado.
+\end{itemize}
+
+\item Req \#34: El archivo de histogramas tendrá una tabla que indique la frecuencia de fallos como función de los SEFIs por registro del DUT.
+\begin{itemize}
+    \item Verificación: se verificará con \emph{wireshark} que la cantidad de fallos reportados sea la misma que la informada en el archivo de histogramas.
+    \item Validación: la cantidad total de fallas no podrá superar el número $ L $.
+\end{itemize}
+
+\item Req \#35: El archivo de histogramas tendrá una tabla que indique la frecuencia de fallos como función de los SEFIs por periférico del DUT.
+\begin{itemize}
+    \item Verificación: se verificará con \emph{wireshark} que la cantidad de fallos reportados sea la misma que la informada en el archivo de histogramas.
+    \item Validación: la cantidad total de fallas no podrá superar el número $ L $.
+\end{itemize}
+
+\item Req \#36: Deberá correr una secuencia de autoevaluación cuya ejecución durará un tiempo $ T $.
+\begin{itemize}
+    \item Verificación: se usará la cuenta de instrucciones del core para medir el tiempo $ T $.
+    \item Validación: se usará el reloj del sistema para medir el tiempo $ T $.
+\end{itemize}
+
+\item Req \#37: Deberá producir una salida $ S $ que podrá ser un estado o una secuencia de estados.
+\begin{itemize}
+    \item Verificación: se usará \emph{wireshark} para verificar la salida $ S $.
+    \item Validación: se usará una terminal serie para validar la salida $ S $.
+\end{itemize}
+
+\item Req \#38: Este proceso podrá tener una entrada $ E $.
+\begin{itemize}
+    \item Verificación:
+    \item Validación:
+\end{itemize}
+
+\item Req \#39: Deberá evaluar el estado de los periféricos del DUT.
+\begin{itemize}
+    \item Verificación: se crearán procesos en DUT que generen fallas en todos los periféricos para verificar la evaluación.
+    \item Validación: se desconectaran los loops externos de los periféricos, generando fallas en todos ellos.
+\end{itemize}
+
+\item Req \#40: Tendrá una función de evaluación para cada uno de los periféricos del DUT.
+\begin{itemize}
+    \item Verificación: se forzará la falla de todos los periféricos.
+    \item Validación: se compararan los informes con la lista de periféricos de las hojas de datos del DUT.
+\end{itemize}
+
+\item Req \#41: Se podrá definir por la entrada $ E $ si se desea excluir uno o más periféricos en la secuencia.
+\begin{itemize}
+    \item Verificación: se verificará con \emph{wireshark} que los periféricos excluidos no sean reportados.
+    \item Validación: se validará con los informes generados que los periféricos excluidos no sean reportados.
+\end{itemize}
+
+\item Req \#42: Manejará una interrupción del flujo normal de la secuencia y generará una salida $ S $ indicando la excepción, por ejemplo: interrupción por \emph{watchdog}.
+\begin{itemize}
+    \item Verificación: se forzará la falla recurrente de un periférico en particular para verificar que todas las salidas $ S $.
+    \item Validación: se observará el informe generado para validar que la cantidad de salidas $ S $ sea igual a $ L $.
+\end{itemize}
+
+\item Req \#43: La salida $ S $ utilizará la UART del DUT para ser transmitida.
+\begin{itemize}
+    \item Verificación: se utilizará \emph{wireshark} para verificar la salida $ S $.
+    \item Validación: se utilizará una terminal serie para validar la salida $ S $.
+\end{itemize}
+
+\item Req \#44: La entrada $ E $ utilizará la UART del DUT para ser recibida.
+\begin{itemize}
+    \item Verificación: se utilizará \emph{wireshark} para verificar la entrada $ E $.
+    \item Validación: se utilizará una terminal serie para enviar entradas $ E $.
+\end{itemize}
+
+\item Req \#45: La inyección de SEFI-SEU podrá tener un desvío en su momento $ t $ de 10 ms.
+\begin{itemize}
+    \item Verificación: se medirá la cantidad de instrucciones ejecutadas para calcular el error del momento $ t $.
+    \item Validación: se utilizará el reloj del sistema para calcular el error del momento $ t $.
+\end{itemize}
+
+\item Req \#46: El desvío tolerado de $ t $ deberá representar como máximo el 1\% de la duración $ T $ de la secuencia del DUT.
+\begin{itemize}
+    \item Verificación: se medirá la cantidad de instrucciones ejecutadas para calcular el desvío del momento $ t $.
+    \item Validación: se utilizará el reloj del sistema para calcular el desvío del momento $ t $.
+\end{itemize}
+
+\item Req \#47: Aceptará un $ \Delta t $ que como mínimo represente el 5\% de la duración $ T $ de la secuencia del DUT.
+\begin{itemize}
+    \item Verificación: se medirá la cantidad de instrucciones ejecutadas para calcular el $ \Delta t $.
+    \item Validación: se utilizará el reloj del sistema para calcular el $ \Delta t $.
+\end{itemize}
+
+\item Req \#48: Se utilizará como dispositivo principal el microcontrolador seleccionado por INVAP.
+\begin{itemize}
+    \item Verificación: se comparará el microcontrolador con las hojas de datos proporcionadas.
+    \item Validación: el cliente confirmará que el microcontrolador es el DUT deseado.
+\end{itemize}
+
+\item Req \#49: Se utilizará un sistema operativo de tiempo real para diseñar el Proceso de DUT.
+\begin{itemize}
+    \item Verificación: se utilizará un RTOS reconocido en la industria.
+    \item Validación: el cliente aprobará el RTOS seleccionado.
+\end{itemize}
+
+\item Req \#50: El Proceso de DUT se desarrollará con un modelo de capas.
+\begin{itemize}
+    \item Verificación: se generará el firmware en múltiples unidades de traducción.
+    \item Validación: el director y co-director validarán la arquitectura del firmware.
 \end{itemize}
 
 \end{itemize}
-
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}{red}
 Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
 
 \begin{itemize}
 	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:
-	  - Indicar esto y quién financiará los gastos correspondientes.
+        \begin{itemize}
+            \item El responsable del proyecto analizará el plan original y se verificará el grado de correspondencia con su ejecución.
+            \item El responsable del proyecto evaluará las tareas que no se ajustaron al plan para detectar las causas y tenerlas en cuentas en próximos proyectos.
+	    \end{itemize}
+
+    \item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
+	    \begin{itemize}
+            \item El responsable del proyecto evaluará la eficacia de la técnica TDD.
+            \item El responsable del proyecto generará informes con todos los problemas técnicos no previstos.
+        \end{itemize}
+	\item Luego de la presentación del trabajo ante el jurado, el responsable del proyecto realizará un agradecimiento público a todas las personas involucradas en el proyecto. 
 \end{itemize}
-
-\end{consigna}
-
 
 \end{document}
