@@ -107,7 +107,7 @@
 
 \usetikzlibrary{automata,positioning}
 \usetikzlibrary{babel}
-
+\usetikzlibrary{arrows.meta}
 
 % Adds space between caption and table
 \usepackage[tableposition=top]{caption}
